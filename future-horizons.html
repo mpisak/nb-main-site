@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Konferencja Future Horizons — coroczne wydarzenie dla młodych ludzi w Gdańsku. Prelekcje, networking, targi pracy." />
+  <meta name="description" content="Coroczna konferencja dla młodych liderów w Gdańsku." />
   <title>Future Horizons — Fundacja Nexus Biznesu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
-/* ── RESET & VARS ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #0d0e0b; --surface: #131410; --surface2: #1b1d17;
-  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
-  --text: #eceee7; --muted: #7d8675;
+  --bg: #181a15; --surface: #1e2019; --surface2: #252720;
+  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
+  --text: #eceee7; --muted: #8a9282;
   --green: #6abf3e; --orange: #e8621a;
   --green-dim: rgba(106,191,62,0.10); --orange-dim: rgba(232,98,26,0.10);
   --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif;
@@ -24,9 +23,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--fb); font-w
 ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
 ::selection { background: var(--green); color: #0d0e0b; }
 
-/* ── NAV ── */
+/* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4rem; transition: background .4s, padding .3s, box-shadow .3s; }
-nav.scrolled { background: rgba(13,14,11,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
+nav.scrolled { background: rgba(24,26,21,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
 .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
 .nav-logo img { height: 40px; width: 40px; object-fit: contain; transition: height .3s; }
 nav.scrolled .nav-logo img { height: 32px; width: 32px; }
@@ -48,10 +47,9 @@ nav.scrolled .nav-logo img { height: 32px; width: 32px; }
 .mobile-menu a { color: var(--text); text-decoration: none; font-family: var(--fd); font-size: 2.2rem; font-weight: 300; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
 .mobile-menu a:hover { color: var(--green); }
 
-/* ── SHARED LAYOUT ── */
+/* LAYOUT */
 .section { padding: 7rem 4rem; }
 .section-alt { background: var(--surface); }
-.section-narrow { max-width: 800px; }
 .section-eyebrow { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
 .section-eyebrow.o { color: var(--orange); }
 h1, h2, h3, h4 { font-family: var(--fd); }
@@ -64,7 +62,7 @@ h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem
 .rule { width: 48px; height: 2px; background: var(--green); margin: 1.2rem 0 1.8rem; }
 .rule.o { background: var(--orange); }
 
-/* ── BUTTONS ── */
+/* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--fb); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; }
 .btn-green { background: var(--green); color: #0d0e0b; font-weight: 500; }
 .btn-green:hover { background: #7ed44e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(106,191,62,.25); }
@@ -74,17 +72,17 @@ h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem
 .btn-ghost:hover { border-color: var(--muted); }
 .tag { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
 
-/* ── PAGE HERO (subpages) ── */
+/* PAGE HERO */
 .page-hero { padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
-.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.05) 0%, transparent 60%), linear-gradient(to bottom, #0d0e0b, #0d0e0b); }
-.page-hero-grid { position: absolute; inset: 0; opacity: .022; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.04) 0%, transparent 60%), linear-gradient(to bottom, var(--bg), var(--bg)); }
+.page-hero-grid { position: absolute; inset: 0; opacity: .018; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
 .page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
 .page-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
 .page-hero .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
 .page-hero .breadcrumb a:hover { color: var(--green); }
 .page-hero .breadcrumb span { color: var(--green); }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer { background: var(--surface); border-top: 1px solid var(--border); }
 .footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; }
 .footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: .8rem; }
@@ -98,12 +96,16 @@ footer { background: var(--surface); border-top: 1px solid var(--border); }
 .footer-legal a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; }
 .footer-legal a:hover { color: var(--text); }
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
 .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* LUCIDE ICON UTIL */
+.icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
+.icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* RESPONSIVE */
 @media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; } nav.scrolled { padding: .75rem 1.5rem; }
@@ -113,126 +115,71 @@ footer { background: var(--surface); border-top: 1px solid var(--border); }
   .footer-main { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
   .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
 }
-@media (max-width: 540px) {
-  .footer-main { grid-template-columns: 1fr; }
+@media (max-width: 540px) { .footer-main { grid-template-columns: 1fr; } }
+
+.soc-icon-btn{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border);border-radius:3px;color:var(--muted);text-decoration:none;transition:all .2s;}.soc-icon-btn:hover{border-color:var(--green);color:var(--green);}
+
+#conf-hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0;}
+.conf-hero-img{position:absolute;inset:0;background-image:url('img/future_horizons.jpg');background-size:cover;background-position:center 30%;filter:brightness(.4);}
+.conf-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(24,26,21,1) 0%,rgba(24,26,21,.5) 40%,transparent 70%);}
+.conf-hero-content{position:relative;z-index:2;padding:5rem 4rem 6rem;max-width:900px;}
+.conf-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,98,26,.15);border:1px solid rgba(232,98,26,.4);color:var(--orange);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;}
+#conf-hero h1{font-size:clamp(3.5rem,7vw,6rem);color:#fff;margin-bottom:.5rem;}
+#conf-hero h1 em{color:var(--orange);}
+.conf-sub{font-family:var(--fd);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:300;color:rgba(255,255,255,.7);margin-bottom:2.5rem;font-style:italic;}
+.conf-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.conf-meta-item{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.65);}
+.conf-meta-item .icon svg{stroke:var(--orange);}
+
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.what-body p{color:var(--muted);line-height:1.85;margin-bottom:1rem;}
+.format-list{display:flex;flex-direction:column;gap:.5rem;}
+.fmt{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.4rem;background:var(--surface2);border:1px solid var(--border);border-radius:3px;transition:border-color .2s;}
+.fmt:hover{border-color:rgba(232,98,26,.25);}
+.fmt-ic{width:34px;height:34px;border:1px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--orange);flex-shrink:0;}
+.fmt-title{font-size:.85rem;font-weight:500;margin-bottom:.15rem;}
+.fmt-desc{font-size:.8rem;color:var(--muted);line-height:1.55;}
+
+.editions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;}
+.edition-card{background:var(--surface2);border:1px solid var(--border);border-radius:4px;overflow:hidden;text-decoration:none;color:var(--text);transition:border-color .3s,transform .3s;display:block;}
+.edition-card:hover{border-color:rgba(232,98,26,.4);transform:translateY(-3px);}
+.ec-head{padding:1.8rem 2rem 1.4rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;}
+.ec-year{font-family:var(--fd);font-size:3.5rem;font-weight:300;color:var(--orange);line-height:1;}
+.ec-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:100px;}
+.ec-body{padding:1.4rem 2rem 1.8rem;}
+.ec-title{font-family:var(--fd);font-size:1.2rem;font-weight:400;margin-bottom:.5rem;}
+.ec-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
+.ec-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--orange);letter-spacing:.06em;transition:gap .2s;text-decoration:none;}
+.ec-link:hover{gap:.7rem;}
+
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;}
+.tg{background:var(--bg);padding:2.2rem 2rem;transition:background .3s;}
+.tg:hover{background:var(--surface2);}
+.tg-icon{width:40px;height:40px;border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--orange);margin-bottom:1rem;}
+.tg h4{font-family:var(--fd);font-size:1.1rem;font-weight:400;margin-bottom:.5rem;}
+.tg p{font-size:.84rem;color:var(--muted);line-height:1.65;}
+
+.patron-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2rem;}
+.patron{padding:1.3rem 1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:3px;transition:border-color .2s;}
+.patron:hover{border-color:rgba(232,98,26,.2);}
+.patron-name{font-family:var(--fd);font-size:1rem;font-weight:400;margin-bottom:.25rem;}
+.patron-type{font-size:.67rem;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;}
+
+@media(max-width:900px){
+  .conf-hero-content{padding:5rem 1.5rem 4rem;}
+  .what-grid{grid-template-columns:1fr;gap:3rem;}
+  .editions-grid{grid-template-columns:1fr;}
+  .target-grid{grid-template-columns:1fr;}
+  .patron-grid{grid-template-columns:1fr 1fr;}
 }
+@media(max-width:540px){.patron-grid{grid-template-columns:1fr;}}
 
-  </style>
-  <style>
-    /* ── CONFERENCE HERO — full-bleed photo ── */
-    #conf-hero {
-      min-height: 100vh; position: relative;
-      display: flex; align-items: flex-end;
-      padding: 0;
-    }
-    .conf-hero-img {
-      position: absolute; inset: 0;
-      background-image: url('future_horizons.jpg');
-      background-size: cover; background-position: center 30%;
-      filter: brightness(.45);
-    }
-    .conf-hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,14,11,1) 0%, rgba(13,14,11,.5) 40%, transparent 70%);
-    }
-    .conf-hero-content {
-      position: relative; z-index: 2;
-      padding: 5rem 4rem 6rem;
-      max-width: 900px;
-    }
-    .conf-hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(232,98,26,.15); border: 1px solid rgba(232,98,26,.4);
-      color: var(--orange); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
-      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
-    }
-    #conf-hero h1 { font-size: clamp(3.5rem,7vw,6.5rem); color: #fff; margin-bottom: .5rem; }
-    #conf-hero h1 em { color: var(--orange); }
-    .conf-hero-sub { font-family: var(--fd); font-size: clamp(1.2rem,2.5vw,1.8rem); font-weight: 300; color: rgba(255,255,255,.75); margin-bottom: 2.5rem; font-style: italic; }
-    .conf-hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .conf-meta-item { display: flex; align-items: center; gap: .6rem; font-size: .85rem; color: rgba(255,255,255,.7); }
-    .conf-meta-item span { color: var(--orange); font-size: 1rem; }
-
-    /* ── WHAT IS ── */
-    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .what-body p { color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
-    .what-aside { display: flex; flex-direction: column; gap: .8rem; }
-    .format-card {
-      display: flex; gap: 1rem; align-items: flex-start;
-      padding: 1.2rem 1.5rem;
-      background: var(--surface2); border: 1px solid var(--border); border-radius: 3px;
-      transition: border-color .2s;
-    }
-    .format-card:hover { border-color: rgba(232,98,26,.3); }
-    .format-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
-    .format-title { font-size: .88rem; font-weight: 500; margin-bottom: .2rem; }
-    .format-desc { font-size: .8rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── EDITIONS ── */
-    .editions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
-    .edition-card {
-      background: var(--surface2); border: 1px solid var(--border); border-radius: 4px;
-      overflow: hidden; text-decoration: none; color: var(--text);
-      transition: border-color .3s, transform .3s;
-      display: block;
-    }
-    .edition-card:hover { border-color: rgba(232,98,26,.4); transform: translateY(-3px); }
-    .edition-card-header {
-      padding: 2rem 2rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: flex-start;
-    }
-    .edition-card-year { font-family: var(--fd); font-size: 4rem; font-weight: 300; color: var(--orange); line-height: 1; }
-    .edition-card-label {
-      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--muted); background: var(--surface);
-      border: 1px solid var(--border); padding: .3rem .7rem; border-radius: 100px;
-    }
-    .edition-card-body { padding: 1.5rem 2rem 2rem; }
-    .edition-card-title { font-family: var(--fd); font-size: 1.3rem; font-weight: 400; margin-bottom: .6rem; }
-    .edition-card-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
-    .edition-card-meta { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .edition-card-link {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .78rem; color: var(--orange); letter-spacing: .06em;
-      transition: gap .2s; margin-top: 1.2rem; text-decoration: none;
-    }
-    .edition-card-link:hover { gap: .8rem; }
-
-    /* ── TARGET ── */
-    .target-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
-    .target-item { background: var(--bg); padding: 2.5rem 2rem; transition: background .3s; }
-    .target-item:hover { background: var(--surface2); }
-    .target-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-    .target-item h4 { font-family: var(--fd); font-size: 1.1rem; font-weight: 400; margin-bottom: .6rem; }
-    .target-item p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
-
-    /* ── PATRONAGE ── */
-    .patron-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2.5rem; }
-    .patron-item {
-      padding: 1.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px;
-      text-align: center; transition: border-color .2s;
-    }
-    .patron-item:hover { border-color: rgba(232,98,26,.25); }
-    .patron-name { font-family: var(--fd); font-size: 1rem; font-weight: 400; margin-bottom: .3rem; }
-    .patron-type { font-size: .68rem; color: var(--orange); letter-spacing: .1em; text-transform: uppercase; }
-
-    @media (max-width: 900px) {
-      .conf-hero-content { padding: 5rem 1.5rem 4rem; }
-      .what-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .editions-grid { grid-template-columns: 1fr; }
-      .target-grid { grid-template-columns: 1fr; }
-      .patron-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 540px) { .patron-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="logo-dark.png" alt="Nexus Biznesu logo" />
+    <img src="img/logo-light.png" alt="Nexus Biznesu logo" />
     <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
   </a>
   <ul class="nav-links">
@@ -253,184 +200,108 @@ footer { background: var(--surface); border-top: 1px solid var(--border); }
   <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
 </div>
 
-<!-- CONF HERO -->
 <section id="conf-hero">
   <div class="conf-hero-img"></div>
   <div class="conf-hero-overlay"></div>
   <div class="conf-hero-content">
-    <div class="breadcrumb" style="margin-bottom:1.5rem;"><a href="index.html" style="color:rgba(255,255,255,.5)">Strona główna</a> <span style="color:var(--orange)">/</span> <span style="color:rgba(255,255,255,.7)">Future Horizons</span></div>
-    <div class="conf-hero-badge">★ Wydarzenie flagowe Fundacji Nexus Biznesu</div>
+    <div class="breadcrumb" style="margin-bottom:1.5rem;"><a href="index.html" style="color:rgba(255,255,255,.45)">Strona główna</a> <span style="color:var(--orange)">/</span> <span style="color:rgba(255,255,255,.6)">Future Horizons</span></div>
+    <div class="conf-badge">Wydarzenie flagowe Fundacji Nexus Biznesu</div>
     <h1 class="reveal">Future<br><em>Horizons</em></h1>
-    <p class="conf-hero-sub reveal d1">Konferencja dla młodych liderów jutra</p>
-    <div class="conf-hero-meta reveal d2">
-      <div class="conf-meta-item"><span>📍</span> Gdańsk, Pomorze</div>
-      <div class="conf-meta-item"><span>🎯</span> Dla osób w wieku 17–26 lat</div>
-      <div class="conf-meta-item"><span>📅</span> Corocznie, jesień</div>
-      <div class="conf-meta-item"><span>👥</span> 250+ uczestników</div>
+    <p class="conf-sub reveal d1">Konferencja dla młodych liderów jutra</p>
+    <div class="conf-meta reveal d2">
+      <div class="conf-meta-item"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Gdańsk, Pomorze</div>
+      <div class="conf-meta-item"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> Dla osób w wieku 17–26 lat</div>
+      <div class="conf-meta-item"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Corocznie, jesień</div>
+      <div class="conf-meta-item"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span> 250+ uczestników</div>
     </div>
     <div class="reveal d3" style="display:flex;gap:.8rem;flex-wrap:wrap;">
       <a href="kontakt.html" class="btn btn-orange">Zostań partnerem 2026</a>
-      <a href="#editions" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.2)">Zobacz poprzednie edycje</a>
+      <a href="#editions" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.2)">Poprzednie edycje</a>
     </div>
   </div>
 </section>
 
-<!-- CO TO JEST -->
 <section class="section">
   <div class="what-grid">
     <div class="what-body">
       <span class="section-eyebrow o reveal">O konferencji</span>
       <h2 class="reveal d1">Wydarzenie, które<br><em>naprawdę otwiera drzwi</em></h2>
       <div class="rule o reveal d1"></div>
-      <p class="reveal d2">Future Horizons to coroczna konferencja, która łączy w jednym miejscu wszystko, czego potrzebuje ambitny młody człowiek wkraczający w świat biznesu: inspirujące prelekcje, możliwość rozmowy z pracodawcami, networking i warsztaty eksperckie.</p>
-      <p class="reveal d2">Każda edycja koncentruje się wokół innego tematu — od innowacji i zrównoważonego rozwoju po przyszłość rzemiosła i nowe technologie. To nie jest kolejna szkolna konferencja. To prawdziwe doświadczenie zawodowe w skali odpowiadającej ambicjom uczestników.</p>
-      <p class="reveal d3">Organizujemy wydarzenie wspólnie z Urzędem Marszałkowskim Województwa Pomorskiego. Patronatem honorowym obejmują nas Ministerstwo Nauki, Izba Rzemieślnicza oraz Rzecznik MŚP.</p>
+      <p class="reveal d2">Future Horizons łączy w jednym miejscu prelekcje, możliwość rozmowy z pracodawcami, networking i warsztaty eksperckie. Każda edycja skupia się wokół innego tematu — od innowacji po przyszłość rzemiosła.</p>
+      <p class="reveal d2">Organizujemy wydarzenie wspólnie z Urzędem Marszałkowskim Województwa Pomorskiego. Patronatem honorowym obejmują je Ministerstwo Nauki, Izba Rzemieślnicza oraz Rzecznik MŚP.</p>
     </div>
-    <div class="what-aside reveal d2">
-      <div class="format-card">
-        <div class="format-icon">⚡</div>
-        <div><div class="format-title">Powerspeeches</div><div class="format-desc">Krótkie, dynamiczne wystąpienia liderów branży inspirujące do działania i poszerzające horyzonty.</div></div>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">☕</div>
-        <div><div class="format-title">Coffeideas — networking</div><div class="format-desc">Luźna atmosfera przy kawie stworzona do wymiany pomysłów i nawiązywania kontaktów, które zostają na lata.</div></div>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">💼</div>
-        <div><div class="format-title">Targi pracy</div><div class="format-desc">Bezpośredni kontakt z pracodawcami i firmami aktywnie poszukującymi młodych talentów.</div></div>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🗣️</div>
-        <div><div class="format-title">Debaty i warsztaty</div><div class="format-desc">Angażujące dyskusje o kluczowych wyzwaniach młodego pokolenia oraz praktyczne warsztaty z ekspertami.</div></div>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🏆</div>
-        <div><div class="format-title">Networking po evencie</div><div class="format-desc">Oficjalna część konferencji to dopiero początek — najciekawsze rozmowy zawsze dzieją się po.</div></div>
-      </div>
+    <div class="format-list reveal d2">
+      <div class="fmt"><div class="fmt-ic"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span></div><div><div class="fmt-title">Powerspeeches</div><div class="fmt-desc">Krótkie, dynamiczne wystąpienia liderów branży.</div></div></div>
+      <div class="fmt"><div class="fmt-ic"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span></div><div><div class="fmt-title">Coffeideas — networking</div><div class="fmt-desc">Wymiana pomysłów przy kawie — kontakty na lata.</div></div></div>
+      <div class="fmt"><div class="fmt-ic"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span></div><div><div class="fmt-title">Targi pracy</div><div class="fmt-desc">Bezpośredni kontakt z pracodawcami szukającymi talentów.</div></div></div>
+      <div class="fmt"><div class="fmt-ic"><span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span></div><div><div class="fmt-title">Debaty i warsztaty</div><div class="fmt-desc">Angażujące dyskusje i praktyczne warsztaty z ekspertami.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- DLA KOGO -->
 <section class="section section-alt">
   <span class="section-eyebrow reveal">Dla kogo</span>
   <h2 class="reveal d1">Konferencja stworzona<br><em>z myślą o Tobie</em></h2>
   <div class="rule reveal d1"></div>
   <div class="target-grid reveal d2">
-    <div class="target-item">
-      <div class="target-icon">🎓</div>
-      <h4>Uczniowie i studenci</h4>
-      <p>Jeśli masz 17–26 lat i chcesz zobaczyć, jak działa biznes od środka — to miejsce dla Ciebie. Bez kolorowania rzeczywistości.</p>
-    </div>
-    <div class="target-item">
-      <div class="target-icon">💡</div>
-      <h4>Młodzi przedsiębiorcy</h4>
-      <p>Masz pomysł na biznes albo już coś budujesz? Znajdziesz tu mentorów, partnerów i inspirację do kolejnego kroku.</p>
-    </div>
-    <div class="target-item">
-      <div class="target-icon">🔍</div>
-      <h4>Szukający kierunku</h4>
-      <p>Nie wiesz jeszcze, co chcesz robić? Future Horizons to idealne miejsce do poznania możliwości i odkrycia własnej ścieżki.</p>
-    </div>
+    <div class="tg"><div class="tg-icon"><span class="icon" style="width:20px;height:20px"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span></div><h4>Uczniowie i studenci</h4><p>Masz 17–26 lat i chcesz zobaczyć, jak działa biznes od środka? To miejsce dla Ciebie.</p></div>
+    <div class="tg"><div class="tg-icon"><span class="icon" style="width:20px;height:20px"><svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span></div><h4>Młodzi przedsiębiorcy</h4><p>Masz pomysł lub już budujesz coś własnego? Znajdziesz tu mentorów i partnerów.</p></div>
+    <div class="tg"><div class="tg-icon"><span class="icon" style="width:20px;height:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span></div><h4>Szukający kierunku</h4><p>Nie wiesz jeszcze co chcesz robić? Future Horizons pomoże odkryć możliwości.</p></div>
   </div>
 </section>
 
-<!-- EDYCJE -->
 <section class="section" id="editions">
   <span class="section-eyebrow o reveal">Poprzednie edycje</span>
   <h2 class="reveal d1">Historia<br><em>konferencji</em></h2>
   <div class="rule o reveal d1"></div>
   <div class="editions-grid">
-    <div class="edition-card reveal d1">
-      <div class="edition-card-header">
-        <div class="edition-card-year">2025</div>
-        <div class="edition-card-label">Ostatnia edycja</div>
-      </div>
-      <div class="edition-card-body">
-        <div class="edition-card-title">Future Horizons 2025 — Przyszłość rzemiosła</div>
-        <p class="edition-card-desc">Edycja poświęcona przyszłości rzemiosła i tradycyjnych zawodów w erze automatyzacji. Dyskusja o tym, jak łączyć dziedzictwo z innowacją i gdzie leżą niespodziewane szanse dla młodych.</p>
-        <div class="edition-card-meta">
-          <span class="tag">Gdańsk</span>
-          <span class="tag">Rzemiosło</span>
-          <span class="tag">Innowacje</span>
-        </div>
-        <a href="https://www.gdansk.pl/wiadomosci/Jaka-jest-przyszlosc-rzemiosla-Konferencja-Future-Horizons-2025,a,298245" target="_blank" rel="noopener" class="edition-card-link">Czytaj relację →</a>
-      </div>
-    </div>
-    <div class="edition-card reveal d2">
-      <div class="edition-card-header">
-        <div class="edition-card-year">2024</div>
-        <div class="edition-card-label">Pierwsza edycja</div>
-      </div>
-      <div class="edition-card-body">
-        <div class="edition-card-title">Future Horizons 2024 — Innowacje i zrównoważony rozwój</div>
-        <p class="edition-card-desc">Inauguracyjna edycja konferencji na 34. piętrze Olivia Star w Gdańsku. 250+ uczestników, prelekcje liderów, targi pracy i networking z widokiem na całe Trójmiasto.</p>
-        <div class="edition-card-meta">
-          <span class="tag">Olivia Star</span>
-          <span class="tag">250+ uczestników</span>
-          <span class="tag">Innowacje</span>
-        </div>
-        <a href="https://radiobiznes.com/aktualnosci/konferencja-future-horizons-2024/" target="_blank" rel="noopener" class="edition-card-link">Czytaj relację →</a>
-      </div>
-    </div>
+    <a href="https://www.gdansk.pl/wiadomosci/Jaka-jest-przyszlosc-rzemiosla-Konferencja-Future-Horizons-2025,a,298245" target="_blank" rel="noopener" class="edition-card reveal d1">
+      <div class="ec-head"><div class="ec-year">2025</div><div class="ec-label">Ostatnia edycja</div></div>
+      <div class="ec-body"><div class="ec-title">Future Horizons 2025 — Przyszłość rzemiosła</div><p class="ec-desc">Edycja poświęcona przyszłości rzemiosła i tradycyjnych zawodów w erze automatyzacji i nowych technologii.</p><div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;"><span class="tag">Gdańsk</span><span class="tag">Rzemiosło</span><span class="tag">Innowacje</span></div><span class="ec-link">Czytaj relację <span class="icon" style="width:13px;height:13px"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></span></div>
+    </a>
+    <a href="https://radiobiznes.com/aktualnosci/konferencja-future-horizons-2024/" target="_blank" rel="noopener" class="edition-card reveal d2">
+      <div class="ec-head"><div class="ec-year">2024</div><div class="ec-label">Pierwsza edycja</div></div>
+      <div class="ec-body"><div class="ec-title">Future Horizons 2024 — Innowacje i zrównoważony rozwój</div><p class="ec-desc">Inauguracyjna edycja na 34. piętrze Olivia Star. 250+ uczestników, prelekcje liderów i targi pracy.</p><div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;"><span class="tag">Olivia Star</span><span class="tag">250+ uczestników</span></div><span class="ec-link">Czytaj relację <span class="icon" style="width:13px;height:13px"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></span></div>
+    </a>
   </div>
 </section>
 
-<!-- PATRONATY -->
 <section class="section section-alt">
-  <span class="section-eyebrow reveal">Wsparcie instytucjonalne</span>
-  <h2 class="reveal d1">Patronaty honorowe<br><em>i partnerzy</em></h2>
+  <span class="section-eyebrow reveal">Patronaty i partnerzy</span>
+  <h2 class="reveal d1">Wsparcie<br><em class="g">instytucjonalne</em></h2>
   <div class="rule reveal d1"></div>
   <div class="patron-grid reveal d2">
-    <div class="patron-item">
-      <div class="patron-name">Ministerstwo Nauki</div>
-      <div class="patron-type">Patronat honorowy</div>
-    </div>
-    <div class="patron-item">
-      <div class="patron-name">Izba Rzemieślnicza</div>
-      <div class="patron-type">Patronat honorowy</div>
-    </div>
-    <div class="patron-item">
-      <div class="patron-name">Rzecznik MŚP</div>
-      <div class="patron-type">Patronat honorowy</div>
-    </div>
-    <div class="patron-item">
-      <div class="patron-name">Urząd Marszałkowski Woj. Pomorskiego</div>
-      <div class="patron-type">Współorganizator</div>
-    </div>
-    <div class="patron-item">
-      <div class="patron-name">Radio Biznes</div>
-      <div class="patron-type">Patronat medialny</div>
-    </div>
-    <div class="patron-item" style="opacity:.45;cursor:default;">
-      <div class="patron-name" style="color:var(--muted)">Twoja firma?</div>
-      <div class="patron-type" style="color:var(--muted)">Zostań partnerem 2026</div>
-    </div>
+    <div class="patron"><div class="patron-name">Ministerstwo Nauki</div><div class="patron-type">Patronat honorowy</div></div>
+    <div class="patron"><div class="patron-name">Izba Rzemieślnicza</div><div class="patron-type">Patronat honorowy</div></div>
+    <div class="patron"><div class="patron-name">Rzecznik MŚP</div><div class="patron-type">Patronat honorowy</div></div>
+    <div class="patron"><div class="patron-name">Urząd Marszałkowski Woj. Pomorskiego</div><div class="patron-type">Współorganizator</div></div>
+    <div class="patron"><div class="patron-name">Radio Biznes</div><div class="patron-type">Patronat medialny</div></div>
+    <div class="patron" style="opacity:.4;"><div class="patron-name" style="color:var(--muted)">Twoja firma?</div><div class="patron-type" style="color:var(--muted)">Zostań partnerem 2026</div></div>
   </div>
 </section>
 
-<!-- CTA PARTNER -->
 <section class="section" style="text-align:center;">
-  <span class="section-eyebrow o reveal" style="display:flex;justify-content:center;">Edycja 2026</span>
-  <h2 class="reveal d1" style="max-width:580px;margin:0 auto 1.5rem;">Chcesz być częścią<br><em>kolejnej edycji?</em></h2>
-  <p class="reveal d2" style="color:var(--muted);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;">
-    Szukamy partnerów biznesowych i patronów medialnych dla Future Horizons 2026. Napisz do nas — razem stworzymy wydarzenie, które zapamięta całe Trójmiasto.
-  </p>
-  <div class="reveal d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+  <h2 class="reveal" style="max-width:520px;margin:0 auto 1.5rem;">Chcesz być częścią<br><em>kolejnej edycji?</em></h2>
+  <p class="reveal d1" style="color:var(--muted);max-width:440px;margin:0 auto 2.5rem;line-height:1.8;">Szukamy partnerów biznesowych i patronów medialnych dla Future Horizons 2026.</p>
+  <div class="reveal d2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
     <a href="kontakt.html" class="btn btn-orange">Zostań partnerem</a>
     <a href="o-nas.html" class="btn btn-ghost">Poznaj nasz zespół</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-main">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo">
-        <img src="logo-dark.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <img src="img/logo-light.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
         <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
       </a>
       <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+      <div style="display:flex;gap:.6rem;margin-top:1rem;">
+        <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="Facebook"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span></a>
+        <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-icon-btn" title="Instagram"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></a>
+        <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="LinkedIn"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span></a>
+      </div>
     </div>
     <div class="footer-col">
       <h5>Projekty</h5>
@@ -454,19 +325,18 @@ footer { background: var(--surface); border-top: 1px solid var(--border); }
   <div class="footer-bottom">
     <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
     <div class="footer-legal">
-      <a href="#">Polityka prywatności</a>
-      <a href="#">RODO</a>
-      <a href="#">Statut fundacji</a>
+      <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+      <a href="rodo.html">RODO</a>
+      <a href="https://drive.google.com/file/d/1MvQIoOCnPZ-ViKabMwEKiJpl-vTl_QwC/view?usp=drivesdk" target="_blank" rel="noopener">Statut fundacji</a>
     </div>
   </div>
 </footer>
-
 <script>
+
 // ── SCROLL NAV ──
 const nav = document.getElementById('navbar');
 if (nav) {
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-  // fire once on load
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }
 
@@ -491,12 +361,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // immediately reveal above-fold elements
   setTimeout(() => {
     document.querySelectorAll('.page-hero .reveal, #hero .reveal').forEach(el => el.classList.add('visible'));
   }, 80);
 
-  // ── ACTIVE NAV LINK ──
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
     if (a.getAttribute('href') === page) a.classList.add('active');
