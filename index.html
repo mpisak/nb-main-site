@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fundacja Nexus Biznesu – wspieramy rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk." />
+  <meta property="og:title" content="Fundacja Nexus Biznesu" />
+  <meta property="og:description" content="Kształtujemy liderów jutra poprzez praktyczną edukację, konferencje i warsztaty." />
+  <title>Fundacja Nexus Biznesu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+/* ── RESET & VARS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d0e0b; --surface: #131410; --surface2: #1b1d17;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #eceee7; --muted: #7d8675;
+  --green: #6abf3e; --orange: #e8621a;
+  --green-dim: rgba(106,191,62,0.10); --orange-dim: rgba(232,98,26,0.10);
+  --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::selection { background: var(--green); color: #0d0e0b; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4rem; transition: background .4s, padding .3s, box-shadow .3s; }
+nav.scrolled { background: rgba(13,14,11,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
+.nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav-logo img { height: 40px; width: 40px; object-fit: contain; transition: height .3s; }
+nav.scrolled .nav-logo img { height: 32px; width: 32px; }
+.nav-logo-text { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; letter-spacing: .04em; color: var(--text); line-height: 1.2; }
+.nav-logo-text span { color: var(--orange); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--green); }
+.nav-cta { color: var(--green) !important; border: 1px solid rgba(106,191,62,.4); padding: .5rem 1.3rem; border-radius: 2px; }
+.nav-cta:hover { background: var(--green-dim); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: .3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4.5px); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 190; background: var(--bg); padding: 6rem 2rem 2rem; flex-direction: column; gap: 0; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--text); text-decoration: none; font-family: var(--fd); font-size: 2.2rem; font-weight: 300; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+.mobile-menu a:hover { color: var(--green); }
+
+/* ── SHARED LAYOUT ── */
+.section { padding: 7rem 4rem; }
+.section-alt { background: var(--surface); }
+.section-narrow { max-width: 800px; }
+.section-eyebrow { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+.section-eyebrow.o { color: var(--orange); }
+h1, h2, h3, h4 { font-family: var(--fd); }
+h1 { font-size: clamp(3rem,5.5vw,5rem); font-weight: 300; line-height: 1.08; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+h1 em { font-style: italic; color: var(--orange); }
+h2 { font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
+h2 em { font-style: italic; color: var(--orange); }
+h2 em.g { color: var(--green); }
+h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem; }
+.rule { width: 48px; height: 2px; background: var(--green); margin: 1.2rem 0 1.8rem; }
+.rule.o { background: var(--orange); }
+
+/* ── BUTTONS ── */
+.btn { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--fb); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; }
+.btn-green { background: var(--green); color: #0d0e0b; font-weight: 500; }
+.btn-green:hover { background: #7ed44e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(106,191,62,.25); }
+.btn-orange { background: var(--orange); color: #fff; font-weight: 500; }
+.btn-orange:hover { background: #f0773a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,98,26,.3); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-ghost:hover { border-color: var(--muted); }
+.tag { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+/* ── PAGE HERO (subpages) ── */
+.page-hero { padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.05) 0%, transparent 60%), linear-gradient(to bottom, #0d0e0b, #0d0e0b); }
+.page-hero-grid { position: absolute; inset: 0; opacity: .022; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+.page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+.page-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+.page-hero .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.page-hero .breadcrumb a:hover { color: var(--green); }
+.page-hero .breadcrumb span { color: var(--green); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); }
+.footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; }
+.footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: .8rem; }
+.footer-col h5 { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--text); text-decoration: none; font-size: .85rem; margin-bottom: .6rem; transition: color .2s; }
+.footer-col a:hover { color: var(--green); }
+.footer-col p { font-size: .85rem; color: var(--muted); margin-bottom: .4rem; }
+.footer-bottom { padding: 1.5rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .75rem; color: var(--muted); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-legal a:hover { color: var(--text); }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; } nav.scrolled { padding: .75rem 1.5rem; }
+  .nav-links { display: none; } .hamburger { display: flex; }
+  .section { padding: 5rem 1.5rem; }
+  .page-hero { padding: 8rem 1.5rem 4rem; }
+  .footer-main { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+  .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .footer-main { grid-template-columns: 1fr; }
+}
+
+  </style>
+  <style>
+    /* ── HERO ── */
+    #hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 0 4rem; overflow: hidden; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .16; pointer-events: none; }
+    .orb-1 { width: 500px; height: 500px; background: var(--green); top: -100px; right: 8%; animation: drift1 14s ease-in-out infinite; }
+    .orb-2 { width: 360px; height: 360px; background: var(--orange); bottom: -60px; right: 28%; animation: drift2 18s ease-in-out infinite; }
+    .orb-3 { width: 280px; height: 280px; background: var(--green); top: 45%; left: -80px; animation: drift1 22s ease-in-out infinite reverse; opacity: .07; }
+    @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(28px,-38px)} }
+    @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-38px,28px)} }
+    .hero-grid { position: absolute; inset: 0; opacity: .025; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+    .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; width: 100%; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .7rem; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: 1.5rem; }
+    .hero-eyebrow::before { content:''; width: 28px; height: 1px; background: var(--green); }
+    .hero-desc { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.8; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .hero-logo-wrap { display: flex; align-items: center; justify-content: center; position: relative; }
+    .hero-logo-bg { position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle,rgba(106,191,62,.07) 0%,transparent 70%); border: 1px solid rgba(106,191,62,.08); animation: pulse 5s ease-in-out infinite; }
+    .hero-logo-bg2 { position: absolute; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(232,98,26,.07); animation: pulse 7s ease-in-out infinite reverse; }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+    .hero-logo-img { width: 230px; height: 230px; object-fit: contain; position: relative; z-index: 2; filter: drop-shadow(0 0 40px rgba(106,191,62,.12)); }
+    .hero-stats { display: flex; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .hero-stat-num { font-family: var(--fd); font-size: 2rem; font-weight: 300; color: var(--green); line-height: 1; }
+    .hero-stat-num.o { color: var(--orange); }
+    .hero-stat-label { font-size: .7rem; color: var(--muted); margin-top: .2rem; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 4rem; z-index: 2; display: flex; align-items: center; gap: .7rem; font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .scroll-line { width: 1px; height: 38px; background: linear-gradient(to bottom,var(--muted),transparent); animation: scrollP 2s ease-in-out infinite; }
+    @keyframes scrollP { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(5px)} }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-body p { color: var(--muted); margin-bottom: 1rem; line-height: 1.8; }
+    .about-body p:last-of-type { margin-bottom: 2rem; }
+    .about-visual { display: flex; flex-direction: column; gap: 1rem; }
+    .about-quote-card { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--orange); padding: 2rem 2rem 2rem 2.5rem; border-radius: 3px; }
+    .about-quote-card blockquote { font-family: var(--fd); font-size: 1.35rem; font-style: italic; font-weight: 300; line-height: 1.45; color: var(--text); margin-bottom: 1rem; }
+    .about-quote-card cite { font-size: .8rem; color: var(--muted); font-style: normal; }
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+    .stat-box { padding: 1.5rem 1rem; text-align: center; background: var(--surface); border-right: 1px solid var(--border); }
+    .stat-box:last-child { border-right: none; }
+    .stat-num { font-family: var(--fd); font-size: 2.2rem; font-weight: 300; color: var(--green); line-height: 1; }
+    .stat-num.o { color: var(--orange); }
+    .stat-lbl { font-size: .68rem; color: var(--muted); margin-top: .3rem; letter-spacing: .06em; }
+
+    /* ── PROJECTS ── */
+    .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .project-card { background: var(--bg); padding: 2.8rem 2.5rem; position: relative; overflow: hidden; transition: background .35s; }
+    .project-card:hover { background: var(--surface2); }
+    .project-accent-line { position: absolute; top: 0; left: 0; right: 0; height: 2px; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+    .project-card:hover .project-accent-line { transform: scaleX(1); }
+    .green-line { background: var(--green); } .orange-line { background: var(--orange); }
+    .project-num { font-family: var(--fd); font-size: 5rem; font-weight: 300; color: rgba(255,255,255,.04); line-height: 1; margin-bottom: .3rem; letter-spacing: -.02em; transition: color .3s; }
+    .project-card:hover .project-num { color: rgba(255,255,255,.07); }
+    .project-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .project-card p { color: var(--muted); font-size: .9rem; line-height: 1.75; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.5rem; }
+    .project-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.5rem; font-size: .78rem; text-decoration: none; letter-spacing: .06em; transition: gap .25s; }
+    .project-link.g { color: var(--green); } .project-link.o { color: var(--orange); }
+    .project-link:hover { gap: .8rem; }
+
+    /* ── CONFERENCE ── */
+    .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .conf-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(232,98,26,.1); border: 1px solid rgba(232,98,26,.3); color: var(--orange); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .conf-desc { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .conf-features { display: flex; flex-direction: column; gap: .7rem; margin: 1.8rem 0 2rem; }
+    .conf-feature { display: flex; align-items: flex-start; gap: .9rem; padding: 1rem 1.2rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; transition: border-color .2s; }
+    .conf-feature:hover { border-color: rgba(232,98,26,.25); }
+    .conf-feature-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .conf-feature-title { font-size: .85rem; font-weight: 500; margin-bottom: .15rem; }
+    .conf-feature-desc { font-size: .8rem; color: var(--muted); }
+    .editions-title { font-size: .72rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1rem; }
+    .editions { display: flex; flex-direction: column; gap: 2px; }
+    .edition { display: grid; grid-template-columns: 80px 1fr auto; align-items: center; gap: 1.5rem; padding: 1.4rem 1.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; text-decoration: none; color: var(--text); transition: border-color .2s, background .2s; }
+    .edition:hover { border-color: rgba(232,98,26,.3); background: #1f2018; }
+    .edition-year { font-family: var(--fd); font-size: 2.2rem; font-weight: 300; color: var(--orange); line-height: 1; }
+    .edition-name { font-size: .9rem; font-weight: 400; margin-bottom: .15rem; }
+    .edition-meta { font-size: .77rem; color: var(--muted); }
+    .edition-arrow { color: var(--muted); font-size: 1rem; transition: transform .2s; }
+    .edition:hover .edition-arrow { transform: translateX(4px); color: var(--orange); }
+    .patronage { margin-top: 1.5rem; padding: 1.2rem 1.5rem; background: rgba(232,98,26,.05); border: 1px solid rgba(232,98,26,.15); border-radius: 3px; }
+    .patronage-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .5rem; }
+    .patronage-names { font-size: .82rem; color: var(--text); line-height: 1.6; }
+
+    /* ── VALUES ── */
+    .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; margin-top: 3rem; }
+    .value-card { padding: 2.5rem 2rem; border-right: 1px solid var(--border); transition: background .3s; }
+    .value-card:last-child { border-right: none; }
+    .value-card:hover { background: var(--surface2); }
+    .value-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+    .value-card h4 { font-family: var(--fd); font-size: 1.15rem; font-weight: 400; margin-bottom: .6rem; }
+    .value-card p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── TEAM TEASER ── */
+    .team-teaser { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 3rem; }
+    .tt-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color .3s, transform .3s; }
+    .tt-card:hover { border-color: rgba(106,191,62,.3); transform: translateY(-3px); }
+    .tt-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; display: block; filter: grayscale(20%); transition: filter .3s; }
+    .tt-photo-ph { width: 100%; aspect-ratio: 1/1; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--border2); }
+    .tt-wrap { overflow: hidden; }
+    .tt-card:hover .tt-photo { filter: grayscale(0); }
+    .tt-info { padding: 1rem 1.2rem; }
+    .tt-name { font-family: var(--fd); font-size: 1.1rem; font-weight: 400; margin-bottom: .15rem; }
+    .tt-role { font-size: .68rem; color: var(--green); letter-spacing: .08em; text-transform: uppercase; }
+    .tt-role.o { color: var(--orange); }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .contact-email-big { font-family: var(--fd); font-size: clamp(1.8rem,4vw,3rem); font-weight: 300; color: var(--text); text-decoration: none; transition: color .2s; }
+    .contact-email-big:hover { color: var(--green); }
+    .contact-socials { display: flex; gap: .6rem; }
+    .soc-pill { display: flex; align-items: center; gap: .5rem; padding: .5rem 1rem; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); text-decoration: none; transition: all .2s; }
+    .soc-pill:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { padding: 0 1.5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 6rem; }
+      .hero-logo-wrap { order: -1; }
+      .hero-logo-img { width: 160px; height: 160px; }
+      .hero-logo-bg { width: 240px; height: 240px; } .hero-logo-bg2 { width: 180px; height: 180px; }
+      .about-grid, .conf-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .team-teaser { grid-template-columns: 1fr 1fr; }
+      .scroll-hint { display: none; }
+      .contact-strip { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      h1 { font-size: 2.6rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .hero-logo-img { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo-dark.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html">Konferencja</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow reveal">Fundacja Nexus Biznesu · Gdańsk</div>
+      <h1 class="reveal d1">Kształtujemy<br><em>liderów</em><br>jutra.</h1>
+      <p class="hero-desc reveal d2">Wspieramy młodych ludzi w wejściu na rynek pracy poprzez praktyczną edukację, inspirujące konferencje i nowoczesne platformy e-learningowe.</p>
+      <div class="hero-actions reveal d3">
+        <a href="projekty.html" class="btn btn-green">Nasze projekty</a>
+        <a href="kontakt.html" class="btn btn-ghost">Współpracuj z nami</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div><div class="hero-stat-num">3+</div><div class="hero-stat-label">Lata działalności</div></div>
+        <div><div class="hero-stat-num o">250+</div><div class="hero-stat-label">Uczestników rocznie</div></div>
+        <div><div class="hero-stat-num">3</div><div class="hero-stat-label">Aktywne projekty</div></div>
+      </div>
+    </div>
+    <div class="hero-logo-wrap reveal d2">
+      <div class="hero-logo-bg"></div><div class="hero-logo-bg2"></div>
+      <img src="logo-dark.png" alt="Nexus Biznesu" class="hero-logo-img" />
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Przewiń</span></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-grid">
+    <div class="about-body">
+      <span class="section-eyebrow reveal">O fundacji</span>
+      <h2 class="reveal d1">Łączymy biznes<br><em>z edukacją</em></h2>
+      <div class="rule reveal d1"></div>
+      <p class="reveal d2">Fundacja Nexus Biznesu to przestrzeń dla młodych ludzi, którzy chcą rozwijać swoje kompetencje i skutecznie wejść na rynek pracy. Łączymy pasję z praktyką, tworząc projekty edukacyjne, warsztaty i wydarzenia networkingowe.</p>
+      <p class="reveal d2">Działamy przy wsparciu Urzędu Marszałkowskiego Województwa Pomorskiego i patronatach instytucji takich jak Ministerstwo Nauki oraz Izba Rzemieślnicza.</p>
+      <a href="o-nas.html" class="btn btn-ghost reveal d3">Poznaj nasz zespół</a>
+    </div>
+    <div class="about-visual reveal d2">
+      <div class="about-quote-card">
+        <blockquote>„Stawiamy na innowacyjne podejście i realne efekty — bo przyszłość należy do tych, którzy działają."</blockquote>
+        <cite>— Fundacja Nexus Biznesu, Gdańsk</cite>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-num">3+</div><div class="stat-lbl">Lata działalności</div></div>
+        <div class="stat-box"><div class="stat-num o">250+</div><div class="stat-lbl">Uczestników / rok</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Projekty</div></div>
+        <div class="stat-box"><div class="stat-num o" style="font-size:1.5rem;line-height:1.2">GDN</div><div class="stat-lbl">Gdańsk</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section-alt">
+  <div class="projects-header">
+    <div>
+      <span class="section-eyebrow o reveal">Nasze działania</span>
+      <h2 class="reveal d1">Aktywne <em>projekty</em></h2>
+    </div>
+    <a href="projekty.html" class="btn btn-ghost reveal" style="font-size:.72rem;padding:.6rem 1.2rem;">Zobacz wszystkie →</a>
+  </div>
+  <div class="projects-grid reveal d1">
+    <div class="project-card">
+      <div class="project-accent-line orange-line"></div>
+      <div class="project-num">01</div>
+      <div class="project-icon">🎤</div>
+      <h3>Konferencja<br>Future Horizons</h3>
+      <p>Coroczna konferencja dla młodych w wieku 17–26 lat — prelekcje liderów, targi pracy i networking w ikonicznych miejscach Gdańska.</p>
+      <div class="project-tags"><span class="tag">Konferencja</span><span class="tag">Networking</span><span class="tag">Gdańsk</span></div>
+      <a href="future-horizons.html" class="project-link o">Dowiedz się więcej →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-accent-line green-line"></div>
+      <div class="project-num">02</div>
+      <div class="project-icon">📚</div>
+      <h3>Nexus<br>Academy</h3>
+      <p>Platforma e-learningowa do przedmiotu Biznes i Zarządzanie w szkołach średnich — interaktywna, praktyczna, bezpłatna.</p>
+      <div class="project-tags"><span class="tag">E-learning</span><span class="tag">Szkoły średnie</span><span class="tag">B&Z</span></div>
+      <span class="project-link g" style="cursor:default;opacity:.55;">Wkrótce dostępna</span>
+    </div>
+    <div class="project-card">
+      <div class="project-accent-line orange-line"></div>
+      <div class="project-num">03</div>
+      <div class="project-icon">🛠️</div>
+      <h3>Warsztaty<br>Nexus</h3>
+      <p>Bezpłatne warsztaty w szkołach średnich: umowy o pracę, prawa pracownicze, zakładanie działalności, negocjacje.</p>
+      <div class="project-tags"><span class="tag">Warsztaty</span><span class="tag">Rynek pracy</span><span class="tag">Bezpłatne</span></div>
+      <a href="kontakt.html" class="project-link o">Zaproś nas do szkoły →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCE HIGHLIGHT -->
+<section id="conference" class="section">
+  <div class="conf-grid">
+    <div>
+      <div class="conf-badge">★ Wydarzenie flagowe</div>
+      <span class="section-eyebrow o reveal">Konferencja</span>
+      <h2 class="reveal d1">Future<br><em>Horizons</em></h2>
+      <div class="rule o reveal d1"></div>
+      <p class="conf-desc reveal d2">Future Horizons to coroczne wydarzenie otwierające młodym drzwi do świata biznesu, innowacji i świadomego planowania kariery. Każda edycja przyciąga liderów i setki ambitnych uczestników z całego Pomorza.</p>
+      <div class="conf-features reveal d2">
+        <div class="conf-feature"><div class="conf-feature-icon">⚡</div><div><div class="conf-feature-title">Powerspeeches</div><div class="conf-feature-desc">Dynamiczne wystąpienia liderów branży inspirujące do działania.</div></div></div>
+        <div class="conf-feature"><div class="conf-feature-icon">☕</div><div><div class="conf-feature-title">Coffeideas — networking</div><div class="conf-feature-desc">Wymiana pomysłów w luźnej atmosferze, kontakty na lata.</div></div></div>
+        <div class="conf-feature"><div class="conf-feature-icon">💼</div><div><div class="conf-feature-title">Targi pracy</div><div class="conf-feature-desc">Bezpośredni kontakt z pracodawcami szukającymi młodych talentów.</div></div></div>
+        <div class="conf-feature"><div class="conf-feature-icon">🗣️</div><div><div class="conf-feature-title">Debaty i warsztaty</div><div class="conf-feature-desc">Angażujące dyskusje o kluczowych wyzwaniach młodego pokolenia.</div></div></div>
+      </div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;" class="reveal d3">
+        <a href="future-horizons.html" class="btn btn-orange">Więcej o konferencji</a>
+        <a href="kontakt.html" class="btn btn-ghost">Zostań partnerem</a>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="editions-title">Poprzednie edycje</div>
+      <div class="editions">
+        <a href="https://www.gdansk.pl/wiadomosci/Jaka-jest-przyszlosc-rzemiosla-Konferencja-Future-Horizons-2025,a,298245" target="_blank" rel="noopener" class="edition">
+          <div class="edition-year">2025</div>
+          <div><div class="edition-name">Future Horizons 2025</div><div class="edition-meta">Przyszłość rzemiosła · Gdańsk</div></div>
+          <div class="edition-arrow">→</div>
+        </a>
+        <a href="https://radiobiznes.com/aktualnosci/konferencja-future-horizons-2024/" target="_blank" rel="noopener" class="edition">
+          <div class="edition-year">2024</div>
+          <div><div class="edition-name">Future Horizons 2024</div><div class="edition-meta">Olivia Star, 34. piętro · 250 uczestników</div></div>
+          <div class="edition-arrow">→</div>
+        </a>
+      </div>
+      <div class="patronage">
+        <div class="patronage-label">Patronaty honorowe</div>
+        <div class="patronage-names">Ministerstwo Nauki · Izba Rzemieślnicza · Rzecznik MŚP · Urząd Marszałkowski Woj. Pomorskiego</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM TEASER -->
+<section class="section section-alt">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <span class="section-eyebrow reveal">Ludzie</span>
+      <h2 class="reveal d1">Nasz <em>zespół</em></h2>
+    </div>
+    <a href="o-nas.html" class="btn btn-ghost reveal" style="font-size:.72rem;padding:.6rem 1.2rem;">Poznaj nas bliżej →</a>
+  </div>
+  <div class="team-teaser reveal d2">
+    <div class="tt-card">
+      <div class="tt-wrap"><img src="team_piotr.png" alt="Piotr Kamiński" class="tt-photo" /></div>
+      <div class="tt-info"><div class="tt-name">Piotr Kamiński</div><div class="tt-role o">Prezes Zarządu</div></div>
+    </div>
+    <div class="tt-card">
+      <div class="tt-wrap"><img src="team_mateusz.png" alt="Mateusz Pisański" class="tt-photo" /></div>
+      <div class="tt-info"><div class="tt-name">Mateusz Pisański</div><div class="tt-role">Wiceprezes</div></div>
+    </div>
+    <div class="tt-card">
+      <div class="tt-wrap"><img src="team_nikola.png" alt="Nikola Krzosek" class="tt-photo" /></div>
+      <div class="tt-info"><div class="tt-name">Nikola Krzosek</div><div class="tt-role">Wiceprezes</div></div>
+    </div>
+    <div class="tt-card">
+      <div class="tt-wrap"><div class="tt-photo-ph">👤</div></div>
+      <div class="tt-info"><div class="tt-name">Maria Paprocka</div><div class="tt-role o">Członek Zarządu</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values" class="section">
+  <div style="max-width:600px">
+    <span class="section-eyebrow reveal">Nasze wartości</span>
+    <h2 class="reveal d1">Dlaczego warto<br><em class="g">z nami działać</em></h2>
+    <div class="rule reveal d1"></div>
+  </div>
+  <div class="values-grid reveal d2">
+    <div class="value-card"><div class="value-icon">🎯</div><h4>Praktyczne efekty</h4><p>Nie ograniczamy się do teorii. Każdy projekt dostarcza realnych narzędzi przydatnych od razu.</p></div>
+    <div class="value-card"><div class="value-icon">🤝</div><h4>Sieć kontaktów</h4><p>Budujemy mosty między młodymi ludźmi a biznesem — przestrzeń do wartościowych relacji.</p></div>
+    <div class="value-card"><div class="value-icon">🌱</div><h4>Zrównoważony rozwój</h4><p>Edukacja odpowiadająca na realne potrzeby rynku i wyzwania współczesnego świata.</p></div>
+    <div class="value-card"><div class="value-icon">💡</div><h4>Innowacyjność</h4><p>Od platform online po warsztaty w szkołach — szukamy nowych form dotarcia do młodych.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="section section-alt">
+  <span class="section-eyebrow o reveal">Kontakt</span>
+  <div class="contact-strip reveal d1">
+    <div>
+      <h2 style="margin-bottom:.5rem;">Napisz<br><em>do nas</em></h2>
+      <p style="color:var(--muted);font-size:.9rem;">Odpiszemy najszybciej jak możemy.</p>
+    </div>
+    <a href="mailto:biuro@nb.org.pl" class="contact-email-big">biuro@nb.org.pl</a>
+    <div class="contact-socials">
+      <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-pill">f FB</a>
+      <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-pill">◎ IG</a>
+      <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-pill">in LI</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="logo-dark.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="#values">Wartości</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="#">Polityka prywatności</a>
+      <a href="#">RODO</a>
+      <a href="#">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SCROLL NAV ──
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  // fire once on load
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ── MOBILE NAV ──
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── REVEAL ON SCROLL ──
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // immediately reveal above-fold elements
+  setTimeout(() => {
+    document.querySelectorAll('.page-hero .reveal, #hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 80);
+
+  // ── ACTIVE NAV LINK ──
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+});
+
+</script>
+</body>
+</html>

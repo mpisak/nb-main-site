@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Skontaktuj się z Fundacją Nexus Biznesu — biuro@nb.org.pl, Gdańsk." />
+  <title>Kontakt — Fundacja Nexus Biznesu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+/* ── RESET & VARS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d0e0b; --surface: #131410; --surface2: #1b1d17;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #eceee7; --muted: #7d8675;
+  --green: #6abf3e; --orange: #e8621a;
+  --green-dim: rgba(106,191,62,0.10); --orange-dim: rgba(232,98,26,0.10);
+  --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::selection { background: var(--green); color: #0d0e0b; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4rem; transition: background .4s, padding .3s, box-shadow .3s; }
+nav.scrolled { background: rgba(13,14,11,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
+.nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav-logo img { height: 40px; width: 40px; object-fit: contain; transition: height .3s; }
+nav.scrolled .nav-logo img { height: 32px; width: 32px; }
+.nav-logo-text { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; letter-spacing: .04em; color: var(--text); line-height: 1.2; }
+.nav-logo-text span { color: var(--orange); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--green); }
+.nav-cta { color: var(--green) !important; border: 1px solid rgba(106,191,62,.4); padding: .5rem 1.3rem; border-radius: 2px; }
+.nav-cta:hover { background: var(--green-dim); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: .3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4.5px); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 190; background: var(--bg); padding: 6rem 2rem 2rem; flex-direction: column; gap: 0; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--text); text-decoration: none; font-family: var(--fd); font-size: 2.2rem; font-weight: 300; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+.mobile-menu a:hover { color: var(--green); }
+
+/* ── SHARED LAYOUT ── */
+.section { padding: 7rem 4rem; }
+.section-alt { background: var(--surface); }
+.section-narrow { max-width: 800px; }
+.section-eyebrow { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+.section-eyebrow.o { color: var(--orange); }
+h1, h2, h3, h4 { font-family: var(--fd); }
+h1 { font-size: clamp(3rem,5.5vw,5rem); font-weight: 300; line-height: 1.08; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+h1 em { font-style: italic; color: var(--orange); }
+h2 { font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
+h2 em { font-style: italic; color: var(--orange); }
+h2 em.g { color: var(--green); }
+h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem; }
+.rule { width: 48px; height: 2px; background: var(--green); margin: 1.2rem 0 1.8rem; }
+.rule.o { background: var(--orange); }
+
+/* ── BUTTONS ── */
+.btn { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--fb); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; }
+.btn-green { background: var(--green); color: #0d0e0b; font-weight: 500; }
+.btn-green:hover { background: #7ed44e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(106,191,62,.25); }
+.btn-orange { background: var(--orange); color: #fff; font-weight: 500; }
+.btn-orange:hover { background: #f0773a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,98,26,.3); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-ghost:hover { border-color: var(--muted); }
+.tag { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+/* ── PAGE HERO (subpages) ── */
+.page-hero { padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.05) 0%, transparent 60%), linear-gradient(to bottom, #0d0e0b, #0d0e0b); }
+.page-hero-grid { position: absolute; inset: 0; opacity: .022; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+.page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+.page-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+.page-hero .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.page-hero .breadcrumb a:hover { color: var(--green); }
+.page-hero .breadcrumb span { color: var(--green); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); }
+.footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; }
+.footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: .8rem; }
+.footer-col h5 { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--text); text-decoration: none; font-size: .85rem; margin-bottom: .6rem; transition: color .2s; }
+.footer-col a:hover { color: var(--green); }
+.footer-col p { font-size: .85rem; color: var(--muted); margin-bottom: .4rem; }
+.footer-bottom { padding: 1.5rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .75rem; color: var(--muted); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-legal a:hover { color: var(--text); }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; } nav.scrolled { padding: .75rem 1.5rem; }
+  .nav-links { display: none; } .hamburger { display: flex; }
+  .section { padding: 5rem 1.5rem; }
+  .page-hero { padding: 8rem 1.5rem 4rem; }
+  .footer-main { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+  .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .footer-main { grid-template-columns: 1fr; }
+}
+
+  </style>
+  <style>
+    /* ── CONTACT MAIN ── */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+
+    /* big email CTA */
+    .email-block { margin: 2.5rem 0; }
+    .email-link {
+      display: inline-flex; align-items: center; gap: 1rem;
+      font-family: var(--fd); font-size: clamp(1.6rem,3.5vw,2.8rem); font-weight: 300;
+      color: var(--text); text-decoration: none;
+      padding: 1.5rem 2rem;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 4px; width: 100%;
+      transition: border-color .3s, background .3s;
+    }
+    .email-link:hover { border-color: var(--green); background: rgba(106,191,62,.05); color: var(--green); }
+    .email-icon { font-size: 1.8rem; flex-shrink: 0; }
+
+    /* contact cards */
+    .contact-cards { display: flex; flex-direction: column; gap: .7rem; margin-top: 2rem; }
+    .cc {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 3px;
+    }
+    .cc-icon { font-size: 1.3rem; width: 32px; text-align: center; flex-shrink: 0; }
+    .cc-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .15rem; }
+    .cc-val { font-size: .9rem; }
+    .cc-val a { color: var(--text); text-decoration: none; }
+    .cc-val a:hover { color: var(--green); }
+
+    /* social */
+    .social-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .7rem; margin-top: 2rem; }
+    .soc-card {
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+      padding: 1.5rem 1rem;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 3px;
+      text-decoration: none; color: var(--text);
+      transition: border-color .25s, background .25s;
+      text-align: center;
+    }
+    .soc-card:hover { border-color: var(--green); background: var(--green-dim); }
+    .soc-card-icon { font-size: 1.6rem; }
+    .soc-card-name { font-size: .78rem; letter-spacing: .06em; color: var(--muted); }
+    .soc-card:hover .soc-card-name { color: var(--green); }
+
+    /* right column — topics */
+    .topics-title { font-family: var(--fd); font-size: 1.3rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .topic-list { display: flex; flex-direction: column; gap: .6rem; }
+    .topic-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.2rem 1.5rem;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 3px;
+      transition: border-color .2s;
+      text-decoration: none; color: var(--text);
+    }
+    .topic-item:hover { border-color: rgba(106,191,62,.3); }
+    .topic-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .15rem; }
+    .topic-name { font-size: .88rem; font-weight: 400; margin-bottom: .2rem; }
+    .topic-desc { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+
+    /* legal block */
+    .legal-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 3px;
+      overflow: hidden; margin-top: 3rem;
+    }
+    .legal-item { background: var(--surface); padding: 1.5rem 2rem; }
+    .legal-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .4rem; }
+    .legal-val { font-size: .9rem; }
+    .legal-val a { color: var(--green); text-decoration: none; }
+    .legal-val a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 4rem; }
+      .social-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .legal-block { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .social-grid { grid-template-columns: 1fr 1fr; }
+      .email-link { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo-dark.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html">Konferencja</a></li>
+    <li><a href="kontakt.html" class="nav-cta active">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeNav()">Strona główna</a>
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background: radial-gradient(ellipse at 50% 60%, rgba(106,191,62,0.06) 0%, transparent 60%), linear-gradient(to bottom, #0d0e0b, #0d0e0b);"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Strona główna</a> <span>/</span> <span>Kontakt</span></div>
+    <span class="section-eyebrow reveal">Bądźmy w kontakcie</span>
+    <h1 class="reveal d1">Napisz<br><em>do nas.</em></h1>
+    <p class="reveal d2" style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:560px;">
+      Chętnie porozmawiamy o współpracy, partnerstwie, warsztatach lub po prostu odpowiemy na każde pytanie. Odpiszemy najszybciej jak możemy.
+    </p>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="section">
+  <div class="contact-layout">
+
+    <!-- LEFT — dane kontaktowe -->
+    <div>
+      <span class="section-eyebrow reveal">Dane kontaktowe</span>
+      <h2 class="reveal d1">Skontaktuj się<br><em class="g">z nami</em></h2>
+      <div class="rule reveal d1"></div>
+
+      <div class="email-block reveal d2">
+        <a href="mailto:biuro@nb.org.pl" class="email-link">
+          <span class="email-icon">✉️</span>
+          biuro@nb.org.pl
+        </a>
+      </div>
+
+      <div class="contact-cards reveal d2">
+        <div class="cc">
+          <div class="cc-icon">📍</div>
+          <div>
+            <div class="cc-label">Adres siedziby</div>
+            <div class="cc-val">Aleja Grunwaldzka 5, 80-236 Gdańsk</div>
+          </div>
+        </div>
+        <div class="cc">
+          <div class="cc-icon">🏛️</div>
+          <div>
+            <div class="cc-label">KRS</div>
+            <div class="cc-val">0001120585</div>
+          </div>
+        </div>
+        <div class="cc">
+          <div class="cc-icon">🧾</div>
+          <div>
+            <div class="cc-label">NIP</div>
+            <div class="cc-val">9571176731</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal d3" style="font-size:.78rem;color:var(--muted);margin:1.5rem 0 .8rem;text-transform:uppercase;letter-spacing:.12em;">Media społecznościowe</p>
+      <div class="social-grid reveal d3">
+        <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-card">
+          <div class="soc-card-icon">📘</div>
+          <div class="soc-card-name">Facebook</div>
+        </a>
+        <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-card">
+          <div class="soc-card-icon">📸</div>
+          <div class="soc-card-name">Instagram</div>
+        </a>
+        <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-card">
+          <div class="soc-card-icon">💼</div>
+          <div class="soc-card-name">LinkedIn</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT — tematy kontaktu -->
+    <div>
+      <div class="topics-title reveal d1">W czym możemy pomóc?</div>
+      <div class="topic-list">
+        <a href="mailto:biuro@nb.org.pl?subject=Współpraca biznesowa" class="topic-item reveal d1">
+          <div class="topic-icon">🤝</div>
+          <div>
+            <div class="topic-name">Współpraca biznesowa i patronat</div>
+            <div class="topic-desc">Chcesz zostać partnerem konferencji Future Horizons lub objąć patronatem nasze działania? Chętnie porozmawiamy.</div>
+          </div>
+        </a>
+        <a href="mailto:biuro@nb.org.pl?subject=Warsztaty Nexus w naszej szkole" class="topic-item reveal d2">
+          <div class="topic-icon">🛠️</div>
+          <div>
+            <div class="topic-name">Warsztaty Nexus w szkole</div>
+            <div class="topic-desc">Chcesz zaprósić nas do swojego liceum lub technikum? Wystarczy jeden mail — resztą zajmujemy się my.</div>
+          </div>
+        </a>
+        <a href="mailto:biuro@nb.org.pl?subject=Nexus Academy" class="topic-item reveal d2">
+          <div class="topic-icon">📚</div>
+          <div>
+            <div class="topic-name">Nexus Academy — szkoły pilotażowe</div>
+            <div class="topic-desc">Interesuje Cię platforma e-learningowa do przedmiotu Biznes i Zarządzanie? Zaproś swoją szkołę do programu beta.</div>
+          </div>
+        </a>
+        <a href="mailto:biuro@nb.org.pl?subject=Konferencja Future Horizons 2026" class="topic-item reveal d3">
+          <div class="topic-icon">🎤</div>
+          <div>
+            <div class="topic-name">Konferencja Future Horizons</div>
+            <div class="topic-desc">Pytania dot. rejestracji, prelegentów lub partnerstwa przy kolejnej edycji — napisz do nas.</div>
+          </div>
+        </a>
+        <a href="mailto:biuro@nb.org.pl?subject=Pytanie ogólne" class="topic-item reveal d3">
+          <div class="topic-icon">💬</div>
+          <div>
+            <div class="topic-name">Inne pytania</div>
+            <div class="topic-desc">Masz pytanie, które nie pasuje do żadnej kategorii? Też odpiszemy — po prostu napisz.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGAL DOCS -->
+  <div class="legal-block reveal" style="margin-top:5rem;">
+    <div class="legal-item">
+      <div class="legal-label">Dokumenty fundacji</div>
+      <div class="legal-val"><a href="#">Statut Fundacji Nexus Biznesu →</a></div>
+    </div>
+    <div class="legal-item">
+      <div class="legal-label">Polityka prywatności</div>
+      <div class="legal-val"><a href="#">Polityka prywatności i RODO →</a></div>
+    </div>
+    <div class="legal-item">
+      <div class="legal-label">KRS</div>
+      <div class="legal-val">0001120585</div>
+    </div>
+    <div class="legal-item">
+      <div class="legal-label">NIP</div>
+      <div class="legal-val">9571176731</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="logo-dark.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="index.html#values">Wartości</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="#">Polityka prywatności</a>
+      <a href="#">RODO</a>
+      <a href="#">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SCROLL NAV ──
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  // fire once on load
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ── MOBILE NAV ──
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── REVEAL ON SCROLL ──
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // immediately reveal above-fold elements
+  setTimeout(() => {
+    document.querySelectorAll('.page-hero .reveal, #hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 80);
+
+  // ── ACTIVE NAV LINK ──
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+});
+
+</script>
+</body>
+</html>

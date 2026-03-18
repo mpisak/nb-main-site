@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Poznaj zespół Fundacji Nexus Biznesu — młodych liderów i ekspertów, którzy razem kształtują przyszłość edukacji biznesowej w Polsce." />
+  <title>O nas — Fundacja Nexus Biznesu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+/* ── RESET & VARS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d0e0b; --surface: #131410; --surface2: #1b1d17;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #eceee7; --muted: #7d8675;
+  --green: #6abf3e; --orange: #e8621a;
+  --green-dim: rgba(106,191,62,0.10); --orange-dim: rgba(232,98,26,0.10);
+  --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::selection { background: var(--green); color: #0d0e0b; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4rem; transition: background .4s, padding .3s, box-shadow .3s; }
+nav.scrolled { background: rgba(13,14,11,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
+.nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav-logo img { height: 40px; width: 40px; object-fit: contain; transition: height .3s; }
+nav.scrolled .nav-logo img { height: 32px; width: 32px; }
+.nav-logo-text { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; letter-spacing: .04em; color: var(--text); line-height: 1.2; }
+.nav-logo-text span { color: var(--orange); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--green); }
+.nav-cta { color: var(--green) !important; border: 1px solid rgba(106,191,62,.4); padding: .5rem 1.3rem; border-radius: 2px; }
+.nav-cta:hover { background: var(--green-dim); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: .3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4.5px); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 190; background: var(--bg); padding: 6rem 2rem 2rem; flex-direction: column; gap: 0; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--text); text-decoration: none; font-family: var(--fd); font-size: 2.2rem; font-weight: 300; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+.mobile-menu a:hover { color: var(--green); }
+
+/* ── SHARED LAYOUT ── */
+.section { padding: 7rem 4rem; }
+.section-alt { background: var(--surface); }
+.section-narrow { max-width: 800px; }
+.section-eyebrow { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+.section-eyebrow.o { color: var(--orange); }
+h1, h2, h3, h4 { font-family: var(--fd); }
+h1 { font-size: clamp(3rem,5.5vw,5rem); font-weight: 300; line-height: 1.08; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+h1 em { font-style: italic; color: var(--orange); }
+h2 { font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
+h2 em { font-style: italic; color: var(--orange); }
+h2 em.g { color: var(--green); }
+h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem; }
+.rule { width: 48px; height: 2px; background: var(--green); margin: 1.2rem 0 1.8rem; }
+.rule.o { background: var(--orange); }
+
+/* ── BUTTONS ── */
+.btn { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--fb); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; }
+.btn-green { background: var(--green); color: #0d0e0b; font-weight: 500; }
+.btn-green:hover { background: #7ed44e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(106,191,62,.25); }
+.btn-orange { background: var(--orange); color: #fff; font-weight: 500; }
+.btn-orange:hover { background: #f0773a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,98,26,.3); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-ghost:hover { border-color: var(--muted); }
+.tag { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+/* ── PAGE HERO (subpages) ── */
+.page-hero { padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.05) 0%, transparent 60%), linear-gradient(to bottom, #0d0e0b, #0d0e0b); }
+.page-hero-grid { position: absolute; inset: 0; opacity: .022; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+.page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+.page-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+.page-hero .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.page-hero .breadcrumb a:hover { color: var(--green); }
+.page-hero .breadcrumb span { color: var(--green); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); }
+.footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; }
+.footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: .8rem; }
+.footer-col h5 { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--text); text-decoration: none; font-size: .85rem; margin-bottom: .6rem; transition: color .2s; }
+.footer-col a:hover { color: var(--green); }
+.footer-col p { font-size: .85rem; color: var(--muted); margin-bottom: .4rem; }
+.footer-bottom { padding: 1.5rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .75rem; color: var(--muted); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-legal a:hover { color: var(--text); }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; } nav.scrolled { padding: .75rem 1.5rem; }
+  .nav-links { display: none; } .hamburger { display: flex; }
+  .section { padding: 5rem 1.5rem; }
+  .page-hero { padding: 8rem 1.5rem 4rem; }
+  .footer-main { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+  .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .footer-main { grid-template-columns: 1fr; }
+}
+
+  </style>
+  <style>
+    /* ── MISSION SPLIT ── */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .mission-body p { color: var(--muted); margin-bottom: 1rem; line-height: 1.85; }
+    .mission-body p:last-child { margin-bottom: 2rem; }
+    .mission-visual { display: flex; flex-direction: column; gap: 1px; }
+    .mission-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 1.8rem 2rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: border-color .25s;
+    }
+    .mission-card:hover { border-color: rgba(106,191,62,.25); }
+    .mission-card-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: .15rem; }
+    .mission-card h4 { font-family: var(--fd); font-size: 1.05rem; font-weight: 400; margin-bottom: .35rem; }
+    .mission-card p { font-size: .85rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .team-card {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 4px;
+      overflow: hidden; transition: border-color .3s, transform .3s;
+    }
+    .team-card:hover { border-color: rgba(106,191,62,.3); transform: translateY(-4px); }
+    .team-photo {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      display: block; filter: grayscale(15%);
+      transition: filter .3s, transform .4s;
+    }
+    .team-card:hover .team-photo { filter: grayscale(0%); transform: scale(1.02); }
+    .team-photo-placeholder {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--surface); display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; color: var(--border2);
+    }
+    .team-photo-wrap { overflow: hidden; }
+    .team-info { padding: 1.4rem 1.5rem 1.6rem; }
+    .team-name { font-family: var(--fd); font-size: 1.25rem; font-weight: 400; margin-bottom: .2rem; }
+    .team-role {
+      font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--green); margin-bottom: .8rem;
+    }
+    .team-role.o { color: var(--orange); }
+    .team-bio { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── HISTORY TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+    .tl-item {
+      display: grid; grid-template-columns: 100px 1fr;
+      gap: 2rem; padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-year {
+      font-family: var(--fd); font-size: 2rem; font-weight: 300;
+      color: var(--green); line-height: 1; padding-top: .2rem;
+    }
+    .tl-year.o { color: var(--orange); }
+    .tl-content h4 { font-family: var(--fd); font-size: 1.2rem; font-weight: 400; margin-bottom: .5rem; }
+    .tl-content p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── PARTNERS ── */
+    .partners-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 3px; overflow: hidden; margin-top: 3rem;
+    }
+    .partner-item {
+      background: var(--bg); padding: 2rem 2.5rem;
+      display: flex; flex-direction: column; gap: .5rem;
+      transition: background .25s;
+    }
+    .partner-item:hover { background: var(--surface2); }
+    .partner-name { font-family: var(--fd); font-size: 1.1rem; font-weight: 400; }
+    .partner-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .partners-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 70px 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 540px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo-dark.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html" class="active">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html">Konferencja</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeNav()">Strona główna</a>
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Strona główna</a> <span>/</span> <span>O nas</span></div>
+    <span class="section-eyebrow reveal">Fundacja Nexus Biznesu</span>
+    <h1 class="reveal d1">Młody zespół.<br><em>Realne działanie.</em></h1>
+    <p class="reveal d2" style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:600px;">
+      Jesteśmy fundacją założoną przez młodych ludzi, którzy sami przeszli przez wyzwania wejścia na rynek pracy — i postanowili zmienić to, co ich zdaniem można zrobić lepiej.
+    </p>
+  </div>
+</div>
+
+<!-- MISJA -->
+<section class="section">
+  <div class="mission-grid">
+    <div class="mission-body">
+      <span class="section-eyebrow reveal">Kim jesteśmy</span>
+      <h2 class="reveal d1">Łączymy pasję<br><em class="g">z praktyką</em></h2>
+      <div class="rule reveal d1"></div>
+      <p class="reveal d2">Fundacja Nexus Biznesu powstała z przekonania, że edukacja biznesowa w Polsce może i powinna wyglądać inaczej. Nie chcemy być kolejną organizacją, która mówi o problemach — my dostarczamy rozwiązania.</p>
+      <p class="reveal d2">Działamy na styku świata edukacji i biznesu, budując programy, które są odpowiedzią na realne potrzeby młodych ludzi wkraczających na rynek pracy. Nasze projekty trafiają bezpośrednio do szkół średnich, liceów i techników w całym województwie pomorskim.</p>
+      <p class="reveal d3">Współpracujemy z Urzędem Marszałkowskim Województwa Pomorskiego, patronatem honorowym obejmują nas Ministerstwo Nauki, Izba Rzemieślnicza oraz Rzecznik MŚP.</p>
+    </div>
+    <div class="mission-visual reveal d2">
+      <div class="mission-card">
+        <div class="mission-card-icon">🎯</div>
+        <div>
+          <h4>Nasza misja</h4>
+          <p>Wspieranie młodych ludzi w świadomym wejściu na rynek pracy poprzez praktyczną wiedzę, narzędzia i sieć kontaktów.</p>
+        </div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-icon">🌍</div>
+        <div>
+          <h4>Nasza wizja</h4>
+          <p>Polska, w której każdy młody człowiek — niezależnie od szkoły czy miasta — ma dostęp do edukacji, która naprawdę przygotowuje do życia.</p>
+        </div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-icon">⚡</div>
+        <div>
+          <h4>Nasze podejście</h4>
+          <p>Działamy szybko, testujemy pomysły w praktyce i nie boimy się ambicji. Młodość to nasza siła, nie ograniczenie.</p>
+        </div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-icon">🤝</div>
+        <div>
+          <h4>Współpraca</h4>
+          <p>Budujemy trwałe partnerstwa z biznesem, instytucjami publicznymi i szkołami — bo tylko razem można osiągnąć skalę.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZARZĄD -->
+<section class="section section-alt">
+  <span class="section-eyebrow o reveal">Ludzie</span>
+  <h2 class="reveal d1">Poznaj nasz <em>zespół</em></h2>
+  <div class="rule o reveal d1"></div>
+  <p class="reveal d2" style="color:var(--muted);max-width:600px;line-height:1.8;">
+    Za każdym projektem stoją konkretni ludzie — zaangażowani, pełni energii i przekonani, że edukacja może zmieniać świat.
+  </p>
+
+  <div class="team-grid">
+    <!-- Piotr -->
+    <div class="team-card reveal d1">
+      <div class="team-photo-wrap">
+        <img src="team_piotr.png" alt="Piotr Kamiński" class="team-photo" />
+      </div>
+      <div class="team-info">
+        <div class="team-name">Piotr Kamiński</div>
+        <div class="team-role o">Prezes Zarządu</div>
+        <p class="team-bio">Inicjator i twórca Fundacji Nexus Biznesu. Wizjoner, który przekuwa idee w działające projekty i buduje mosty między światem edukacji a biznesu.</p>
+      </div>
+    </div>
+    <!-- Mateusz -->
+    <div class="team-card reveal d2">
+      <div class="team-photo-wrap">
+        <img src="team_mateusz.png" alt="Mateusz Pisański" class="team-photo" />
+      </div>
+      <div class="team-info">
+        <div class="team-name">Mateusz Pisański</div>
+        <div class="team-role">Wiceprezes Zarządu</div>
+        <p class="team-bio">Odpowiada za operacyjne prowadzenie projektów i rozwój partnerstw strategicznych. Łączy zaangażowanie społeczne z analitycznym podejściem do zarządzania.</p>
+      </div>
+    </div>
+    <!-- Nikola -->
+    <div class="team-card reveal d3">
+      <div class="team-photo-wrap">
+        <img src="team_nikola.png" alt="Nikola Krzosek" class="team-photo" />
+      </div>
+      <div class="team-info">
+        <div class="team-name">Nikola Krzosek</div>
+        <div class="team-role">Wiceprezes Zarządu</div>
+        <p class="team-bio">Koordynuje programy edukacyjne i współpracę ze szkołami. Wierzy, że każdy młody człowiek zasługuje na dostęp do wiedzy, która realnie zmienia życie.</p>
+      </div>
+    </div>
+    <!-- Maria -->
+    <div class="team-card reveal d4">
+      <div class="team-photo-wrap">
+        <div class="team-photo-placeholder">👤</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Maria Paprocka</div>
+        <div class="team-role">Członek Zarządu</div>
+        <p class="team-bio">Wspiera działania fundacji w obszarze komunikacji i relacji zewnętrznych. Dba o to, by nasze projekty docierały do jak największej liczby młodych ludzi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="section">
+  <span class="section-eyebrow reveal">Nasza droga</span>
+  <h2 class="reveal d1">Historia <em class="g">fundacji</em></h2>
+  <div class="rule reveal d1"></div>
+
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-year">2022</div>
+      <div class="tl-content">
+        <h4>Założenie fundacji</h4>
+        <p>Fundacja Nexus Biznesu zostaje zarejestrowana w Gdańsku. Mała grupa zapaleńców z wielką ambicją — zmienić to, jak polska młodzież przygotowuje się do wejścia na rynek pracy.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year o">2024</div>
+      <div class="tl-content">
+        <h4>Future Horizons 2024 — debiut konferencji</h4>
+        <p>Pierwsza edycja konferencji Future Horizons na 34. piętrze Olivia Star w Gdańsku przyciąga ponad 250 uczestników. Wydarzenie organizowane wspólnie z Urzędem Marszałkowskim Woj. Pomorskiego zyskuje ogólnopolski oddźwięk.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2025</div>
+      <div class="tl-content">
+        <h4>Rozbudowa projektów i Future Horizons 2025</h4>
+        <p>Druga edycja konferencji pod hasłem przyszłości rzemiosła. Równolegle ruszają prace nad Nexus Academy oraz Warsztatami Nexus — programem warsztatów bezpośrednio w szkołach średnich.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year o">2026</div>
+      <div class="tl-content">
+        <h4>Skalowanie i nowe horyzonty</h4>
+        <p>Premiera platformy Nexus Academy oraz intensywne wdrożenie Warsztatów Nexus w szkołach całego Trójmiasta. Planowane rozszerzenie działalności na kolejne województwa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERZY / PATRONATY -->
+<section class="section section-alt">
+  <span class="section-eyebrow o reveal">Wsparcie instytucjonalne</span>
+  <h2 class="reveal d1">Partnerzy<br><em>i patronaty</em></h2>
+  <div class="rule o reveal d1"></div>
+  <p class="reveal d2" style="color:var(--muted);max-width:560px;line-height:1.8;margin-bottom:0;">
+    Nasze działania wspierają instytucje, które rozumieją wagę edukacji i inwestycji w młode pokolenie.
+  </p>
+  <div class="partners-grid reveal d2">
+    <div class="partner-item">
+      <div class="partner-name">Urząd Marszałkowski Woj. Pomorskiego</div>
+      <div class="partner-desc">Współorganizator konferencji Future Horizons i strategiczny partner w działaniach edukacyjnych na Pomorzu.</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Ministerstwo Nauki</div>
+      <div class="partner-desc">Patronat honorowy nad konferencją Future Horizons, potwierdzający wartość merytoryczną realizowanych projektów.</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Izba Rzemieślnicza</div>
+      <div class="partner-desc">Patronat honorowy oraz wsparcie merytoryczne w obszarze edukacji zawodowej i przedsiębiorczości rzemieślniczej.</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Rzecznik MŚP</div>
+      <div class="partner-desc">Patronat honorowy wspierający nasze działania na rzecz edukacji w zakresie przedsiębiorczości i prowadzenia działalności.</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Radio Biznes</div>
+      <div class="partner-desc">Patronat medialny nad konferencją Future Horizons, zapewniający szeroki zasięg i ogólnopolską widoczność eventi.</div>
+    </div>
+    <div class="partner-item" style="cursor:default;opacity:.5;">
+      <div class="partner-name" style="color:var(--muted)">Twoja organizacja?</div>
+      <div class="partner-desc">Jeśli chcesz zostać partnerem lub objąć patronatem nasze działania — skontaktuj się z nami.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;">
+  <span class="section-eyebrow reveal" style="justify-content:center;display:flex;">Dołącz do nas</span>
+  <h2 class="reveal d1" style="max-width:600px;margin:0 auto 1.5rem;">Chcesz działać<br><em class="g">razem z nami?</em></h2>
+  <p class="reveal d2" style="color:var(--muted);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;">
+    Szukamy zaangażowanych ludzi, firm gotowych do współpracy i szkół chcących zmienić podejście do edukacji biznesowej.
+  </p>
+  <div class="reveal d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="kontakt.html" class="btn btn-green">Skontaktuj się</a>
+    <a href="projekty.html" class="btn btn-ghost">Zobacz projekty</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="logo-dark.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="index.html#values">Wartości</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="#">Polityka prywatności</a>
+      <a href="#">RODO</a>
+      <a href="#">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SCROLL NAV ──
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  // fire once on load
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ── MOBILE NAV ──
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── REVEAL ON SCROLL ──
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // immediately reveal above-fold elements
+  setTimeout(() => {
+    document.querySelectorAll('.page-hero .reveal, #hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 80);
+
+  // ── ACTIVE NAV LINK ──
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+});
+
+</script>
+</body>
+</html>
