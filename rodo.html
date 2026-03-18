@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Klauzula informacyjna RODO — Fundacja Nexus Biznesu." />
+  <title>RODO — Fundacja Nexus Biznesu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #181a15; --surface: #1e2019; --surface2: #252720;
+  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
+  --text: #eceee7; --muted: #8a9282;
+  --green: #6abf3e; --orange: #e8621a;
+  --green-dim: rgba(106,191,62,0.10); --orange-dim: rgba(232,98,26,0.10);
+  --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::selection { background: var(--green); color: #0d0e0b; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4rem; transition: background .4s, padding .3s, box-shadow .3s; }
+nav.scrolled { background: rgba(24,26,21,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); padding: .75rem 4rem; }
+.nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav-logo img { height: 40px; width: 40px; object-fit: contain; transition: height .3s; }
+nav.scrolled .nav-logo img { height: 32px; width: 32px; }
+.nav-logo-text { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; letter-spacing: .04em; color: var(--text); line-height: 1.2; }
+.nav-logo-text span { color: var(--orange); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--green); }
+.nav-cta { color: var(--green) !important; border: 1px solid rgba(106,191,62,.4); padding: .5rem 1.3rem; border-radius: 2px; }
+.nav-cta:hover { background: var(--green-dim); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: .3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4.5px); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 190; background: var(--bg); padding: 6rem 2rem 2rem; flex-direction: column; gap: 0; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--text); text-decoration: none; font-family: var(--fd); font-size: 2.2rem; font-weight: 300; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+.mobile-menu a:hover { color: var(--green); }
+
+/* LAYOUT */
+.section { padding: 7rem 4rem; }
+.section-alt { background: var(--surface); }
+.section-eyebrow { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+.section-eyebrow.o { color: var(--orange); }
+h1, h2, h3, h4 { font-family: var(--fd); }
+h1 { font-size: clamp(3rem,5.5vw,5rem); font-weight: 300; line-height: 1.08; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+h1 em { font-style: italic; color: var(--orange); }
+h2 { font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
+h2 em { font-style: italic; color: var(--orange); }
+h2 em.g { color: var(--green); }
+h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin-bottom: .9rem; }
+.rule { width: 48px; height: 2px; background: var(--green); margin: 1.2rem 0 1.8rem; }
+.rule.o { background: var(--orange); }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--fb); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; }
+.btn-green { background: var(--green); color: #0d0e0b; font-weight: 500; }
+.btn-green:hover { background: #7ed44e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(106,191,62,.25); }
+.btn-orange { background: var(--orange); color: #fff; font-weight: 500; }
+.btn-orange:hover { background: #f0773a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,98,26,.3); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-ghost:hover { border-color: var(--muted); }
+.tag { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+/* PAGE HERO */
+.page-hero { padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(106,191,62,0.04) 0%, transparent 60%), linear-gradient(to bottom, var(--bg), var(--bg)); }
+.page-hero-grid { position: absolute; inset: 0; opacity: .018; background-image: linear-gradient(rgba(106,191,62,1) 1px,transparent 1px),linear-gradient(90deg,rgba(106,191,62,1) 1px,transparent 1px); background-size: 64px 64px; }
+.page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+.page-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+.page-hero .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.page-hero .breadcrumb a:hover { color: var(--green); }
+.page-hero .breadcrumb span { color: var(--green); }
+
+/* FOOTER */
+footer { background: var(--surface); border-top: 1px solid var(--border); }
+.footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; }
+.footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: .8rem; }
+.footer-col h5 { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--text); text-decoration: none; font-size: .85rem; margin-bottom: .6rem; transition: color .2s; }
+.footer-col a:hover { color: var(--green); }
+.footer-col p { font-size: .85rem; color: var(--muted); margin-bottom: .4rem; }
+.footer-bottom { padding: 1.5rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .75rem; color: var(--muted); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-legal a:hover { color: var(--text); }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* LUCIDE ICON UTIL */
+.icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
+.icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; } nav.scrolled { padding: .75rem 1.5rem; }
+  .nav-links { display: none; } .hamburger { display: flex; }
+  .section { padding: 5rem 1.5rem; }
+  .page-hero { padding: 8rem 1.5rem 4rem; }
+  .footer-main { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+  .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 540px) { .footer-main { grid-template-columns: 1fr; } }
+
+
+.soc-icon-btn{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border);border-radius:3px;color:var(--muted);text-decoration:none;transition:all .2s;}
+.soc-icon-btn:hover{border-color:var(--green);color:var(--green);}
+.legal-body{max-width:800px;margin:0 auto;}
+.legal-body h2{font-size:clamp(1.4rem,2.5vw,2rem);margin-top:3rem;margin-bottom:1rem;}
+.legal-body h2:first-child{margin-top:0;}
+.legal-body h3{font-size:1.05rem;font-weight:500;font-family:var(--fb);margin:1.4rem 0 .5rem;color:var(--text);}
+.legal-body p{color:var(--muted);line-height:1.85;margin-bottom:1rem;}
+.legal-body ul{margin:.8rem 0 1.2rem 1.5rem;}
+.legal-body ul li{color:var(--muted);line-height:1.8;margin-bottom:.4rem;font-size:.93rem;}
+.legal-body a{color:var(--green);}
+.legal-section{padding:2rem 0;border-bottom:1px solid var(--border);}
+.legal-section:last-child{border-bottom:none;}
+.legal-roman{font-family:var(--fd);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:.5rem;}
+.legal-intro{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--orange);padding:1.5rem 2rem;border-radius:3px;margin-bottom:3rem;}
+.legal-intro p{margin:0;font-size:.92rem;}
+
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo-light.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html">Konferencja</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeNav()">Strona główna</a>
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse at 60% 50%,rgba(232,98,26,.04) 0%,transparent 60%),linear-gradient(to bottom,var(--bg),var(--bg));"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Strona główna</a> <span>/</span> <span>RODO</span></div>
+    <span class="section-eyebrow  o reveal">Dokumenty prawne</span>
+    <h1 class="reveal d1">Klauzula informacyjna<br><em>RODO</em></h1>
+    <p class="reveal d2" style="color:var(--muted);font-size:1rem;line-height:1.8;max-width:560px;">Informacje dotyczące ochrony danych osobowych uczestników projektów i wydarzeń realizowanych przez Fundację Nexus Biznesu.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="legal-body">
+
+    <div class="legal-intro reveal">
+      <p>Podanie danych osobowych jest dobrowolne, ale niezbędne do udziału w wydarzeniu, projekcie lub debacie organizowanej przez Fundację Nexus Biznesu. W przypadku niepodania danych niemożliwym będzie przekazywanie informacji o podejmowanych działaniach i projektach.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">1</span>
+      <h2>Administrator danych osobowych</h2>
+      <p>Administratorem danych jest <strong>Fundacja Nexus Biznesu</strong> z siedzibą w Gdańsku (80-236), al. Grunwaldzka 5.</p>
+      <ul>
+        <li>e-mail: <a href="mailto:biuro@nb.org.pl">biuro@nb.org.pl</a></li>
+        <li>adres: al. Grunwaldzka 5, 80-236 Gdańsk</li>
+      </ul>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">2</span>
+      <h2>Cele i podstawa przetwarzania</h2>
+      <p>Administrator przetwarza dane w celach: odpowiedzi na zapytania, marketingu bezpośredniego własnych projektów, realizacji celów statutowych, zawarcia i wykonania umowy, realizacji obowiązków prawno-podatkowych oraz obrony przed roszczeniami.</p>
+      <p>Podstawą prawną jest art. 6 ust. 1 lit. b) i f) RODO oraz Kodeks cywilny.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">3</span>
+      <h2>Odbiorcy danych</h2>
+      <p>Dane mogą być udostępniane podmiotom przetwarzającym dane w imieniu Administratora (obsługa IT, prawna, kadrowa, księgowa) oraz organom ścigania, kontrolnym i podatkowym.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">4</span>
+      <h2>Okres przechowywania danych</h2>
+      <p>Dane będą przetwarzane przez okres niezbędny do realizacji umowy oraz przez wymagany prawem okres po jej wygaśnięciu, w celach archiwizowania lub ochrony przed roszczeniami.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">5</span>
+      <h2>Prawa związane z przetwarzaniem danych</h2>
+      <h3>Prawo dostępu do danych (art. 15 RODO)</h3>
+      <p>Prawo do uzyskania potwierdzenia, czy Administrator przetwarza dane osobowe, dostępu do nich oraz informacji o celach, kategoriach, odbiorcach i profilowaniu.</p>
+      <h3>Prawo do sprostowania (art. 16 RODO)</h3>
+      <p>Prawo do żądania niezwłocznego sprostowania nieprawidłowych danych oraz uzupełnienia danych niekompletnych.</p>
+      <h3>Prawo do usunięcia (art. 17 RODO)</h3>
+      <p>Prawo do żądania usunięcia danych, gdy nie są już niezbędne do celów, dla których zostały zebrane, lub gdy cofnięto zgodę.</p>
+      <h3>Prawo do ograniczenia przetwarzania (art. 18 RODO)</h3>
+      <p>Prawo do żądania ograniczenia przetwarzania, gdy kwestionowana jest prawidłowość danych lub przetwarzanie jest niezgodne z prawem.</p>
+      <h3>Prawo do sprzeciwu (art. 21 RODO)</h3>
+      <p>Prawo do wniesienia sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie Administratora.</p>
+      <h3>Prawo do przenoszenia danych (art. 20 RODO)</h3>
+      <p>Prawo do otrzymania danych w ustrukturyzowanym formacie i żądania ich przesłania innemu administratorowi, jeśli jest to technicznie możliwe.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">6</span>
+      <h2>Sposób realizacji praw</h2>
+      <ul>
+        <li>e-mail: <a href="mailto:biuro@nb.org.pl">biuro@nb.org.pl</a></li>
+        <li>adres: al. Grunwaldzka 5, 80-236 Gdańsk</li>
+      </ul>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">7</span>
+      <h2>Skarga do organu nadzorczego</h2>
+      <p>W przypadku uznania, iż przetwarzanie narusza przepisy RODO, przysługuje prawo do wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa.</p>
+    </div>
+    <div class="legal-section reveal">
+      <span class="legal-roman">8</span>
+      <h2>Zautomatyzowane przetwarzanie</h2>
+      <p>Administrator nie podejmuje wobec Użytkowników decyzji w sposób wyłącznie zautomatyzowany, w szczególności w oparciu o profilowanie.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo-light.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+      <div style="display:flex;gap:.6rem;margin-top:1rem;">
+        <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="Facebook"><span class="icon" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></svg></span></a>
+        <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-icon-btn" title="Instagram"><span class="icon" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></svg></span></a>
+        <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="LinkedIn"><span class="icon" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></svg></span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="index.html#values">Wartości</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+      <a href="rodo.html">RODO</a>
+      <a href="https://drive.google.com/file/d/1MvQIoOCnPZ-ViKabMwEKiJpl-vTl_QwC/view?usp=drivesdk" target="_blank" rel="noopener">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+<script>
+
+// ── SCROLL NAV ──
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ── MOBILE NAV ──
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── REVEAL ON SCROLL ──
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  setTimeout(() => {
+    document.querySelectorAll('.page-hero .reveal, #hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 80);
+
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+});
+
+</script>
+</body>
+</html>
