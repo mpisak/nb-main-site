@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dołącz do Fundacji Nexus Biznesu — wypełnij formularz i zostań częścią naszego zespołu." />
+  <title>Dołącz do nas — Fundacja Nexus Biznesu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="img/logo-light.png" />
+  <link rel="apple-touch-icon" href="img/logo-light.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+.join-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.join-sidebar { position: sticky; top: 7rem; }
+.join-sidebar h2 { margin-bottom: .5rem; }
+.join-sidebar p { color: var(--muted); font-size: .93rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.perks { display: flex; flex-direction: column; gap: .7rem; margin-top: 2rem; }
+.perk {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.perk-ic {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border: 1px solid var(--border); border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green);
+}
+.perk-name { font-size: .87rem; font-weight: 500; margin-bottom: .15rem; }
+.perk-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+.form-wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.form-wrapper::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--green-hi));
+}
+.form-wrapper iframe {
+  display: block;
+  width: 100%;
+  min-height: 1292px;
+  border: none;
+}
+@media (max-width: 1024px) {
+  .join-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .join-sidebar { position: static; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo-light.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html">Konferencja</a></li>
+    <li><a href="dolacz-do-nas.html" class="active">Dołącz do nas</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeNav()">Strona główna</a>
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="dolacz-do-nas.html" onclick="closeNav()">Dołącz do nas</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse at 50% 60%,rgba(106,191,62,.05) 0%,transparent 60%),linear-gradient(to bottom,var(--bg),var(--bg));"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Strona główna</a> <span>/</span> <span>Dołącz do nas</span></div>
+    <span class="label reveal">Twoja szansa</span>
+    <h1 class="reveal d1">Dołącz<br><em>do nas.</em></h1>
+    <p class="reveal d2" style="color:var(--muted);font-size:1rem;line-height:1.8;max-width:520px;">Szukamy zmotywowanych osób, które chcą tworzyć coś wartościowego — od warsztatów przez konferencje aż po edukację przyszłości.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="join-layout">
+    <div class="join-sidebar">
+      <span class="label reveal">Dlaczego warto?</span>
+      <h2 class="reveal d1">Co<br><em>zyskujesz</em></h2>
+      <div class="rule reveal d1"></div>
+      <p class="reveal d2">Stań się częścią fundacji, która realnie zmienia edukację biznesową w Polsce. Pracujemy z uczniami, szkołami i firmami — i zawsze szukamy nowych twarzy.</p>
+      <div class="perks reveal d2">
+        <div class="perk">
+          <div class="perk-ic">
+            <span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          </div>
+          <div>
+            <div class="perk-name">Społeczność</div>
+            <div class="perk-desc">Poznaj podobnie myślących ludzi z całej Polski.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-ic">
+            <span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+          </div>
+          <div>
+            <div class="perk-name">Rozwój</div>
+            <div class="perk-desc">Szkolenia, warsztaty i realna praca projektowa.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-ic">
+            <span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+          </div>
+          <div>
+            <div class="perk-name">Doświadczenie</div>
+            <div class="perk-desc">Realne projekty w CV — konferencje, e-learning, social media.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-ic" style="color:var(--orange)">
+            <span class="icon" style="width:16px;height:16px"><svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg></span>
+          </div>
+          <div>
+            <div class="perk-name">Wpływ</div>
+            <div class="perk-desc">Twoja praca trafia do setek uczniów i szkół w Polsce.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d1">
+      <span class="label">Formularz zgłoszeniowy</span>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">Wypełnij poniższy formularz — odezwiemy się najszybciej jak możemy.</p>
+      <div class="form-wrapper">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSea4-qziVWtj1q5NMey9IqjJyPxUBMBKc51SbyHp69rijnP7g/viewform?embedded=true"
+          width="640"
+          height="1292"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Formularz zgłoszeniowy — Dołącz do Fundacji Nexus Biznesu"
+        >Ładuję&hellip;</iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo-light.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+      <div style="display:flex;gap:.6rem;margin-top:1rem;">
+        <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="Facebook"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span></a>
+        <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-icon-btn" title="Instagram"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></a>
+        <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="LinkedIn"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="dolacz-do-nas.html">Dołącz do nas</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+      <a href="rodo.html">RODO</a>
+      <a href="https://drive.google.com/file/d/1MvQIoOCnPZ-ViKabMwEKiJpl-vTl_QwC/view?usp=drivesdk" target="_blank" rel="noopener">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
