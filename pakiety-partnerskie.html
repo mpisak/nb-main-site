@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pakiety partnerskie Future Horizons 2026 — zostań partnerem konferencji Fundacji Nexus Biznesu." />
+  <title>Pakiety partnerskie — Future Horizons 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="img/logo-light.png" />
+  <link rel="apple-touch-icon" href="img/logo-light.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+/* ── KEY NUMBERS STRIP ── */
+.key-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+.kn {
+  background: var(--surface2);
+  padding: 1.4rem 1.8rem;
+}
+.kn-label {
+  font-size: .67rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+.kn-value {
+  font-family: var(--fd);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── BENEFITS ── */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+.benefit {
+  background: var(--surface2);
+  padding: 2rem 1.8rem;
+  transition: background .2s;
+}
+.benefit:hover { background: var(--surface3); }
+.benefit-nr {
+  font-size: .65rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 1.2rem;
+}
+.benefit h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+.benefit p {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── PACKAGES ── */
+.packages { display: grid; gap: 1.2rem; margin-top: 2.5rem; }
+
+.pkg {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color .25s;
+}
+.pkg:hover { border-color: var(--border2); }
+
+.pkg--featured {
+  border-color: rgba(106,191,62,.25);
+  background:
+    radial-gradient(ellipse at top right, rgba(106,191,62,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(251,146,60,.05) 0%, transparent 40%),
+    var(--surface2);
+}
+.pkg--featured:hover { border-color: rgba(106,191,62,.45); }
+
+.pkg__left {
+  padding: 2.2rem 2rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.pkg__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  width: max-content;
+  padding: .35rem .9rem;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+.pkg--featured .pkg__badge {
+  border-color: rgba(106,191,62,.35);
+  color: var(--green);
+}
+
+.pkg__name {
+  font-family: var(--fd);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: .9rem 0 .4rem;
+  letter-spacing: -.02em;
+}
+
+.pkg__price {
+  font-family: var(--fd);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--text);
+}
+.pkg--featured .pkg__price { color: var(--green); }
+
+.pkg__price-note {
+  display: block;
+  margin-top: .5rem;
+  font-family: var(--fb);
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.pkg__desc {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pkg__right {
+  padding: 2.2rem 2.4rem;
+}
+.pkg__right h3 {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+.pkg__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .6rem 1.5rem;
+}
+.pkg__list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+.pkg__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.pkg--featured .pkg__list li::before { background: var(--green); }
+
+.pkg__footer {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  margin-top: 3rem;
+  padding: 2.5rem 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+.cta-banner h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin-bottom: .5rem;
+}
+.cta-banner p {
+  color: var(--muted);
+  font-size: .93rem;
+  max-width: 620px;
+  margin: 0;
+}
+.cta-actions { display: flex; gap: .8rem; flex-wrap: wrap; justify-content: flex-end; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .pkg { grid-template-columns: 1fr; }
+  .pkg__left { border-right: none; border-bottom: 1px solid var(--border); }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .key-numbers { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .cta-banner { grid-template-columns: 1fr; }
+  .cta-actions { justify-content: flex-start; }
+  .pkg__list { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .key-numbers { grid-template-columns: 1fr 1fr; }
+  .cta-banner { padding: 1.8rem; }
+}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo-light.png" alt="Nexus Biznesu logo" />
+    <div class="nav-logo-text">Nexus<br><span>Biznesu</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="projekty.html">Projekty</a></li>
+    <li><a href="future-horizons.html" class="active">Konferencja</a></li>
+    <li><a href="dolacz-do-nas.html">Dołącz do nas</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeNav()">Strona główna</a>
+  <a href="o-nas.html" onclick="closeNav()">O nas</a>
+  <a href="projekty.html" onclick="closeNav()">Projekty</a>
+  <a href="future-horizons.html" onclick="closeNav()">Konferencja</a>
+  <a href="dolacz-do-nas.html" onclick="closeNav()">Dołącz do nas</a>
+  <a href="kontakt.html" onclick="closeNav()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background: radial-gradient(ellipse at 60% 50%, rgba(251,146,60,.05) 0%, transparent 55%), linear-gradient(to bottom, var(--bg), var(--bg));"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a>
+      <span class="sep">/</span>
+      <a href="future-horizons.html">Konferencja</a>
+      <span class="sep">/</span>
+      <span>Pakiety partnerskie</span>
+    </div>
+    <span class="label reveal"><em class="o" style="font-style:normal;color:var(--orange)">Future Horizons 2026</em></span>
+    <h1 class="reveal d1">Pakiety<br><em style="color:var(--orange)">partnerskie.</em></h1>
+    <p class="reveal d2" style="color:var(--muted); font-size:1rem; line-height:1.8; max-width:540px;">
+      Przestrzeń dla firm, które chcą realnie zaznaczyć swoją obecność, wejść w kontakt z młodymi talentami i zbudować mocną pozycję marki podczas Future Horizons 2026.
+    </p>
+    <div class="key-numbers reveal d3">
+      <div class="kn">
+        <div class="kn-label">Uczestnicy</div>
+        <div class="kn-value" style="color:var(--green)">300+</div>
+      </div>
+      <div class="kn">
+        <div class="kn-label">Wiek grupy</div>
+        <div class="kn-value">17–26 lat</div>
+      </div>
+      <div class="kn">
+        <div class="kn-label">Pakiet premium</div>
+        <div class="kn-value" style="font-size:1.1rem">174 m² + miniscena</div>
+      </div>
+      <div class="kn">
+        <div class="kn-label">Lokalizacja</div>
+        <div class="kn-value">Gdańsk</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DLACZEGO TO DZIAŁA -->
+<section class="section section-alt">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0;">
+    <span class="label reveal">Wartość partnerstwa</span>
+    <h2 class="reveal d1">Dlaczego<br><em>to działa</em></h2>
+    <p class="reveal d2" style="color:var(--muted); max-width:680px;">
+      Partner nie kupuje samego logo. Partner kupuje obecność, dostęp do talentów, mocną przestrzeń marki i realny kontakt z uczestnikami wydarzenia.
+    </p>
+    <div class="benefits-grid reveal d2">
+      <div class="benefit">
+        <div class="benefit-nr">01</div>
+        <h3>Employer branding</h3>
+        <p>Marka jest widoczna tam, gdzie młodzi ludzie szukają kierunku, inspiracji i pierwszych kontaktów zawodowych.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-nr">02</div>
+        <h3>Kontakt z talentami</h3>
+        <p>Bezpośrednie rozmowy, obecność ekspertów firmy, strefa marki i aktywne wejście w doświadczenie wydarzenia.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-nr">03</div>
+        <h3>Widoczność marki</h3>
+        <p>Silna ekspozycja w komunikacji wydarzenia, na miejscu i w materiałach tworzonych wokół konferencji.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-nr">04</div>
+        <h3>Wizerunek partnera</h3>
+        <p>Obecność firmy w projekcie, który łączy edukację, przedsiębiorczość i odpowiedzialne budowanie przyszłości.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAKIETY -->
+<section class="section" id="pakiety">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <span class="label reveal">Trzy poziomy wejścia</span>
+    <h2 class="reveal d1">Pakiety<br><em style="color:var(--orange)">partnerstwa</em></h2>
+    <p class="reveal d2" style="color:var(--muted); max-width:620px;">
+      Trzy poziomy wejścia, wyraźne różnice między pakietami i nacisk na to, co partner realnie dostaje.
+    </p>
+
+    <div class="packages">
+
+      <!-- PARTNER TYTULARNY -->
+      <article class="pkg pkg--featured reveal d1">
+        <div class="pkg__left">
+          <div>
+            <span class="pkg__badge">Pakiet premium</span>
+            <div class="pkg__name">Partner Tytularny</div>
+            <div class="pkg__price">
+              20 000 zł
+              <span class="pkg__price-note">najszerszy zakres obecności i wyłączności</span>
+            </div>
+          </div>
+          <p class="pkg__desc">
+            Pakiet dla marki, która chce stać się głównym partnerem wydarzenia i przejąć najmocniejszą przestrzeń obecności.
+          </p>
+        </div>
+        <div class="pkg__right">
+          <h3>Zakres świadczeń</h3>
+          <ul class="pkg__list">
+            <li>Status Partnera Tytularnego wydarzenia</li>
+            <li>Najmocniejsza ekspozycja marki w materiałach promocyjnych</li>
+            <li>Ekspozycja logo w kluczowych przestrzeniach konferencji</li>
+            <li>Możliwość wystąpienia eksperckiego</li>
+            <li>Udział w debacie jako panelista</li>
+            <li>Możliwość poprowadzenia warsztatu</li>
+            <li>Dedykowany wywiad</li>
+            <li>Relacja foto i wideo z działań partnera</li>
+            <li>Dedykowany opiekun partnera</li>
+            <li>Honorowa statuetka</li>
+            <li>Stoisko w najlepszej lokalizacji</li>
+            <li>Wyłączny dostęp do sali 174 m²</li>
+            <li>Dodatkowa miniscena do dyspozycji partnera</li>
+          </ul>
+          <div class="pkg__footer">
+            Partner dostaje nie tylko widoczność, ale własną, pełnowymiarową strefę marki, którą może wykorzystać pod networking, działania employer brandingowe, prezentacje i rozmowy z uczestnikami.
+          </div>
+        </div>
+      </article>
+
+      <!-- PARTNER STRATEGICZNY -->
+      <article class="pkg reveal d2">
+        <div class="pkg__left">
+          <div>
+            <span class="pkg__badge">Silna obecność</span>
+            <div class="pkg__name">Partner Strategiczny</div>
+            <div class="pkg__price">
+              8 000 zł
+              <span class="pkg__price-note">mocna widoczność i bezpośredni kontakt z uczestnikami</span>
+            </div>
+          </div>
+          <p class="pkg__desc">
+            Pakiet dla firm, które chcą wyraźnie zaznaczyć swoją obecność i pokazać markę w praktycznym kontekście wydarzenia.
+          </p>
+        </div>
+        <div class="pkg__right">
+          <h3>Zakres świadczeń</h3>
+          <ul class="pkg__list">
+            <li>Status Partnera Strategicznego</li>
+            <li>Ekspozycja logo w materiałach promocyjnych</li>
+            <li>Widoczność marki w przestrzeni wydarzenia</li>
+            <li>Stoisko partnerskie</li>
+            <li>Możliwość poprowadzenia warsztatu</li>
+            <li>Udział w debacie jako panelista</li>
+            <li>Dedykowany wywiad</li>
+          </ul>
+          <div class="pkg__footer">
+            Ten pakiet dobrze sprawdza się dla firm, które chcą połączyć obecność marki z merytoryką i kontaktem z uczestnikami.
+          </div>
+        </div>
+      </article>
+
+      <!-- PARTNER -->
+      <article class="pkg reveal d3">
+        <div class="pkg__left">
+          <div>
+            <span class="pkg__badge">Wejście do projektu</span>
+            <div class="pkg__name">Partner</div>
+            <div class="pkg__price">
+              4 000 zł
+              <span class="pkg__price-note">czytelna obecność marki i udział w wydarzeniu</span>
+            </div>
+          </div>
+          <p class="pkg__desc">
+            Pakiet dla firm, które chcą być częścią konferencji, pokazać swoją markę i rozpocząć współpracę w prostym modelu.
+          </p>
+        </div>
+        <div class="pkg__right">
+          <h3>Zakres świadczeń</h3>
+          <ul class="pkg__list">
+            <li>Ekspozycja logo w materiałach promocyjnych</li>
+            <li>Widoczność marki w przestrzeni wydarzenia</li>
+            <li>Stoisko partnerskie</li>
+            <li>Możliwość poprowadzenia warsztatu lub aktywności tematycznej</li>
+          </ul>
+          <div class="pkg__footer">
+            Dobry poziom wejścia dla marki, która chce być obecna na wydarzeniu i pokazać się uczestnikom w konkretny sposób.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Porozmawiajmy<br><em style="color:var(--orange)">o partnerstwie.</em></h2>
+        <p>
+          Future Horizons 2026 to przestrzeń dla firm, które chcą być widoczne tam, gdzie kształtują się przyszłe decyzje, kariery i relacje. Współpraca może zostać dopracowana indywidualnie.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a href="mailto:biuro@nb.org.pl" class="btn btn-orange">biuro@nb.org.pl</a>
+        <a href="kontakt.html" class="btn btn-ghost">Strona kontaktowa</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo-light.png" alt="Nexus Biznesu" style="height:36px;width:36px" />
+        <div class="nav-logo-text" style="font-size:.9rem">Nexus<br><span>Biznesu</span></div>
+      </a>
+      <p>Fundacja wspierająca rozwój młodych ludzi poprzez edukację, warsztaty i konferencje. Gdańsk, Polska.</p>
+      <div style="display:flex;gap:.6rem;margin-top:1rem;">
+        <a href="https://www.facebook.com/nexusbiznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="Facebook"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span></a>
+        <a href="https://www.instagram.com/nexusbiznesu/" target="_blank" rel="noopener" class="soc-icon-btn" title="Instagram"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></a>
+        <a href="https://www.linkedin.com/company/fundacja-nexus-biznesu" target="_blank" rel="noopener" class="soc-icon-btn" title="LinkedIn"><span class="icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Projekty</h5>
+      <a href="future-horizons.html">Future Horizons</a>
+      <a href="projekty.html#academy">Nexus Academy</a>
+      <a href="projekty.html#warsztaty">Warsztaty Nexus</a>
+    </div>
+    <div class="footer-col">
+      <h5>Fundacja</h5>
+      <a href="o-nas.html">O nas</a>
+      <a href="dolacz-do-nas.html">Dołącz do nas</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <p>biuro@nb.org.pl</p>
+      <p>al. Grunwaldzka 5</p>
+      <p>80-236 Gdańsk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fundacja Nexus Biznesu · KRS: 0001120585 · NIP: 9571176731</p>
+    <div class="footer-legal">
+      <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+      <a href="rodo.html">RODO</a>
+      <a href="https://drive.google.com/file/d/1MvQIoOCnPZ-ViKabMwEKiJpl-vTl_QwC/view?usp=drivesdk" target="_blank" rel="noopener">Statut fundacji</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+function toggleNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  if (!m || !b) return;
+  m.classList.remove('open'); b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
