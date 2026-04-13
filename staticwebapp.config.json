@@ -1,0 +1,12 @@
+{
+  "routes": [
+    { "route": "/o-nas",                "rewrite": "/o-nas.html" },
+    { "route": "/projekty",             "rewrite": "/projekty.html" },
+    { "route": "/future-horizons",      "rewrite": "/future-horizons.html" },
+    { "route": "/kontakt",              "rewrite": "/kontakt.html" },
+    { "route": "/dolacz-do-nas",        "rewrite": "/dolacz-do-nas.html" },
+    { "route": "/pakiety-partnerskie",  "rewrite": "/pakiety-partnerskie.html" },
+    { "route": "/polityka-prywatnosci", "rewrite": "/polityka-prywatnosci.html" },
+    { "route": "/rodo",                 "rewrite": "/rodo.html" }
+  ]
+}

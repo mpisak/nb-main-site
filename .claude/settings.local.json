@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(grep -n \"</style>\" *.html)",
-      "Bash(ls -1 *.html)"
+      "Bash(ls -1 *.html)",
+      "Bash(python3 -)"
     ]
   }
 }
